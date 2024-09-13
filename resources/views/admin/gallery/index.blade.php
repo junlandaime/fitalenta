@@ -17,18 +17,18 @@
         @endif
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            @foreach ($images as $image)
+            @foreach ($images as $gallery)
                 <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->title }}"
+                    <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}"
                         class="w-full h-48 object-cover">
                     <div class="p-4">
-                        <h2 class="font-bold text-xl mb-2">{{ $image->title }}</h2>
-                        <p class="text-gray-700 text-base mb-2">{{ Str::limit($image->description, 50) }}</p>
+                        <h2 class="font-bold text-xl mb-2">{{ $gallery->title }}</h2>
+                        <p class="text-gray-700 text-base mb-2">{{ Str::limit($gallery->description, 50) }}</p>
                         <div class="flex justify-between items-center">
                             <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">{{ $image->category }}</span>
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">{{ $gallery->category }}</span>
                             <div class="flex space-x-2">
-                                <a href="{{ route('admin.gallery.show', $image) }}"
+                                <a href="{{ route('admin.gallery.show', $gallery) }}"
                                     class="text-blue-500 hover:text-blue-700">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
                                         </path>
                                     </svg>
                                 </a>
-                                <a href="{{ route('admin.gallery.edit', $image) }}"
+                                <a href="{{ route('admin.gallery.edit', $gallery) }}"
                                     class="text-yellow-500 hover:text-yellow-700">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
                                         </path>
                                     </svg>
                                 </a>
-                                <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST"
+                                <form action="{{ route('admin.gallery.destroy', $gallery) }}" method="POST"
                                     onsubmit="return confirm('Are you sure you want to delete this image?');">
                                     @csrf
                                     @method('DELETE')

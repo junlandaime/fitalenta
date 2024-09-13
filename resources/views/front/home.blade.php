@@ -56,6 +56,7 @@
     </style>
 @endpush
 
+{{-- @dd($combinedItems) --}}
 
 @section('content')
     <!-- Hero Section with Image Slider -->
@@ -85,7 +86,7 @@
     </div>
 
     <!-- Services Section with Horizontal Slider -->
-    <div class="py-16 bg-gray-100 lg:px-32">
+    <div class="py-16 bg-white lg:px-32">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Services</h2>
             <div class="swiper services-swiper">
@@ -108,6 +109,32 @@
             </div>
         </div>
     </div>
+
+    <!-- News & Events Section -->
+    <section class="py-20 bg-gray-100 lg:px-40">
+        <div class="container mx-auto px-4" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
+            <h2 class="text-3xl font-bold text-center mb-12">Latest News & Events</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
+
+                @foreach ($combinedItems as $item)
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <img src="{{ Storage::url($item->image) }}" alt="News 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="text-sm text-gray-600 mb-2">{{ $item->created_at->format('F j, Y') }}</div>
+                            <span class="text-sm text-secondary font-semibold">{{ $item->category->name }}</span>
+
+                            <h3 class="font-bold text-xl mb-2">{{ $item->title }}</h3>
+                            <p class="text-gray-700">{{ $item->excerpt }}</p>
+                            <a href="{{ route('events.index') }}"
+                                class="inline-block mt-4 text-secondary hover:underline">Read More</a>
+                        </div>
+                    </div>
+                @endforeach
+
+
+            </div>
+        </div>
+    </section>
 
     <section id="about" class="py-20 bg-white md:px-40">
         <div class="container mx-auto px-4">
@@ -172,7 +199,7 @@
                         <div class="swiper-slide w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4">
                             <div class="relative group" @mouseenter="activeProfile={{ $index }}"
                                 @mouseleave="activeProfile=null">
-                                <img src="{{ $member['image'] }}" alt="{{ $member['name'] }}"
+                                <img src="{{ Storage::url($member->image) }}" alt="{{ $member['name'] }}"
                                     class="w-full h-80- object-cover rounded-lg shadow-lg">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
@@ -282,7 +309,7 @@
                     @foreach ($clients as $client)
                         <div class="swiper-slide flex items-center justify-center">
                             <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client['name'] }}"
-                                class="max-h-32 max-w-full transition-all duration-300 filter grayscale hover:filter-none hover:scale-125">
+                                class="max-h-32 max-w-full transition-all duration-300 filter hover:filter-none hover:scale-125">
                         </div>
                     @endforeach
                 </div>

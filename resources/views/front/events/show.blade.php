@@ -6,8 +6,8 @@
 
     <section class="relative bg-primary text-white py-32">
         <div class="absolute inset-0 z-0 ">
-            <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('images/default-event.jpg') }}"
-                alt="{{ $event->title }}" alt="Event Background" class="w-full h-full object-cover opacity-30">
+            {{-- <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('images/default-event.jpg') }}"
+                alt="{{ $event->title }}" alt="Event Background" class="w-full h-full object-cover opacity-30"> --}}
         </div>
         <div class="container mx-auto px-4 relative z-10 pt-16">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center">{{ $event->title }}</h1>
@@ -17,7 +17,7 @@
     </section>
 
     <!-- Breadcrumb -->
-    <div class="bg-gray-200 py-2 px-40 ">
+    <div class="bg-gray-200 py-2 lg:px-40 ">
         <div class="container mx-auto">
             <ol class="list-reset flex text-sm">
                 <li><a href="{{ route('home') }}" class="text-primary">Home</a></li>
@@ -106,6 +106,11 @@
                                     </path>
                                 </svg>
                                 <span>{{ $event->event_date->format('F j, Y') }}</span>
+                                @if ($event->event_date->isPast())
+                                    <span class="px-2 py-1 bg-gray-200 text-gray-800 rounded-full text-xs">Past</span>
+                                @else
+                                    <span class="px-2 py-1 bg-green-200 text-green-800 rounded-full text-xs">Upcoming</span>
+                                @endif
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-secondary mr-2" fill="none" stroke="currentColor"

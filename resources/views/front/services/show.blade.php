@@ -3,10 +3,26 @@
 @section('title', $service->name)
 
 @section('content')
-    <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">{{ $service->name }}</h1>
-            <p class="text-xl md:text-2xl">{{ $service->tagline }}</p>
+
+    <section class="relative bg-primary text-white py-32">
+        <div class="absolute inset-0 z-0 ">
+        </div>
+        <div class="container mx-auto px-4 relative z-10 pt-16">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center">{{ $service->name }}</h1>
+            <p class="text-xl md:text-2xl mb-8 text-center">{{ $service->tagline }}</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-200 py-2 lg:px-40 ">
+        <div class="container mx-auto">
+            <ol class="list-reset flex text-sm">
+                <li><a href="{{ route('home') }}" class="text-primary">Home</a></li>
+                <li><span class="mx-2">/</span></li>
+                <li><a href="{{ route('services') }}" class="text-primary">Servuces</a></li>
+                <li><span class="mx-2">/</span></li>
+                <li class="text-gray-700">{{ $service->name }}</li>
+            </ol>
         </div>
     </div>
 

@@ -20,15 +20,19 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $featuredEvents = Event::latest()->take(3)->get();
+        $latestArticles = Article::latest()->take(3)->get();
 
         $data = [
-            'featuredEvents' => Event::where('is_featured', true)->take(3)->get(),
-            'latestArticles' => Article::latest()->take(4)->get(),
+
             'services' => Service::all(),
             'testimonials' => Testimonial::where('is_featured', true)->get(),
             'teamMembers' => TeamMember::where('is_active', true)->orderBy('order')->get(),
             'heroSlides' => HeroSlide::where('is_active', true)->get(),
             'clients' => Client::where('is_featured', true)->get(),
+            'combinedItems' => $latestArticles->concat($featuredEvents)
+                ->sortByDesc('created_at')
+                ->take(3)
         ];
 
         return view('front.home', $data);
