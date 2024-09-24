@@ -9,7 +9,8 @@
             <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->title }}"
                 class="w-full rounded-lg shadow-lg mb-8">
             <p class="text-gray-600 mb-4">{{ $image->description }}</p>
-            <p class="text-sm text-gray-500">Category: {{ $image->category }}</p>
+            <p class="text-gray-600 mb-4">{{ $image->event_date->format('F j, Y') }}</p>
+            <p class="text-sm text-gray-500">Category: {{ $image->category->name }}</p>
 
             <!-- Related Images -->
             @if ($relatedImages->count() > 0)

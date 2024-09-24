@@ -142,16 +142,25 @@
                                 </li>
                             @endif
                         </ul>
-                        <div class="mt-8">
-                            <a href="#"
-                                class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Register
-                                Now</a>
-                        </div>
-                        <div class="mt-4">
-                            <a href="#"
-                                class="block w-full bg-primary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Add
-                                to Calendar</a>
-                        </div>
+                        @if ($event->event_date->isPast())
+                            <div class="mt-8">
+                                <a href="{{ route('gallery') }}"
+                                    class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">See
+                                    Gallery</a>
+                            </div>
+                        @else
+                            <div class="mt-8">
+                                <a href="#"
+                                    class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Register
+                                    Now</a>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#"
+                                    class="block w-full bg-primary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Add
+                                    to Calendar</a>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

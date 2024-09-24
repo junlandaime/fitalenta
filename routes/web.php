@@ -19,10 +19,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 Route::get('/events', [HomeController::class, 'event_index'])->name('events.index');
-Route::get('/events/{event}', [HomeController::class, 'event_show'])->name('events.show');
+Route::get('/events/{event:slug}', [HomeController::class, 'event_show'])->name('events.show');
 
 Route::get('/articles', [HomeController::class, 'article_index'])->name('articles.index');
-Route::get('/articles/{article}', [HomeController::class, 'article_show'])->name('articles.show');
+Route::get('/articles/{article:slug}', [HomeController::class, 'article_show'])->name('articles.show');
 
 Route::get('/services', [HomeController::class, 'service_index'])->name('services');
 Route::get('/services/{service}', [HomeController::class, 'service_show'])->name('services.show');

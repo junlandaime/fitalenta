@@ -20,7 +20,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featuredEvents = Event::latest()->take(3)->get();
+        $featuredEvents = Event::orderBy('event_date', 'desc')->take(3)->get();
         $latestArticles = Article::latest()->take(3)->get();
 
         $data = [
@@ -31,7 +31,7 @@ class HomeController extends Controller
             'heroSlides' => HeroSlide::where('is_active', true)->get(),
             'clients' => Client::where('is_featured', true)->get(),
             'combinedItems' => $latestArticles->concat($featuredEvents)
-                ->sortByDesc('created_at')
+                ->sortByDesc('event_date')
                 ->take(3)
         ];
 
@@ -53,8 +53,9 @@ class HomeController extends Controller
     {
         $categories = Category::get();
 
-        $events = Event::where('event_date', '>=', now())
-            ->orderBy('event_date')
+        $events = Event::
+            // $events = Event::where('event_date', '>=', now())
+            orderBy('event_date', 'desc')
             ->paginate(9);
 
         return view('front.events.index', compact('events', 'categories'));
@@ -62,7 +63,7 @@ class HomeController extends Controller
 
     public function event_show(Event $event)
     {
-        $relatedEvents = Event::where('is_featured', false)
+        $relatedEvents = Event::where('is_featured', true)
             ->orderBy('event_date', 'asc')
             ->take(3)
             ->get();
@@ -72,7 +73,7 @@ class HomeController extends Controller
     public function article_index()
     {
         $categories = Category::get();
-        $articles = Article::published()->latest()->paginate(6);
+        $articles = Article::published()->latest()->paginate(7);
         return view('front.articles.index', compact('articles', 'categories'));
     }
 
@@ -124,7 +125,7 @@ class HomeController extends Controller
     public function gallery_index()
     {
         $gallery = Gallery::where('is_featured', false)
-            // ->orderBy('event_date', 'asc')
+            ->orderBy('event_date', 'desc')
 
             ->get();
         return view('front.gallery.index', compact('gallery'));

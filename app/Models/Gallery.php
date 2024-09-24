@@ -19,11 +19,17 @@ class Gallery extends Model
     ];
 
     protected $casts = [
+        'event_date' => 'datetime',
         'is_featured' => 'boolean',
     ];
 
     public function getImageUrlAttribute()
     {
         return asset('storage/' . $this->image);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

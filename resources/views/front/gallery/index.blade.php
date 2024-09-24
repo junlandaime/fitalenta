@@ -42,6 +42,7 @@
                         <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->title }}"
                             class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition duration-300">
                         <h3 class="mt-2 text-lg font-semibold">{{ $image->title }}</h3>
+                        <h3 class="mt-2 text-base font-base">{{ $image->event_date->diffForHumans() }}</h3>
                     </a>
                 </div>
             @endforeach

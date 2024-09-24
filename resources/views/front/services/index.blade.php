@@ -24,7 +24,7 @@
 
     <div class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            @if ($categories->isNotEmpty())
+            {{-- @if ($categories->isNotEmpty())
                 <div class="mb-12">
                     <h2 class="text-2xl font-bold mb-4">Filter by Category</h2>
                     <div class="flex flex-wrap gap-4">
@@ -40,7 +40,7 @@
                         @endforeach
                     </div>
                 </div>
-            @endif
+            @endif --}}
 
             @if ($services->isEmpty())
                 <p class="text-center text-gray-600">No services found. Please check back later for updates.</p>

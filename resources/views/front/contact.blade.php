@@ -52,9 +52,9 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294B]"
                                 required></textarea>
                         </div>
-                        <button type="submit"
+                        <a id="startcon" href="#" onclick="gettogetInputValue()"
                             class="bg-[#00294B] text-white px-6 py-3 rounded-md hover:bg-[#001f3b] transition duration-300">Send
-                            Message</button>
+                            Message</a>
                     </form>
                 </div>
 
@@ -72,7 +72,9 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-lg">Address</h3>
-                                <p>123 Business Street, Jakarta 12345, Indonesia</p>
+                                <p>Gedung Science Techno Park ITB <br>
+                                    Jl. Ganesha No. 15E, <br>Lb. Siliwangi, Kec. Coblong <br>
+                                    Bandung 40132</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -83,7 +85,7 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-lg">Phone</h3>
-                                <p>+62 21 1234 5678</p>
+                                <p>+62 852 81791931</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -103,8 +105,9 @@
                     <div class="h-64 bg-gray-300 rounded-lg overflow-hidden">
                         <!-- Replace the iframe src with your actual Google Maps embed code -->
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4535331589275!2d106.82254231476885!3d-6.2077353954876035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4068bb5e63d%3A0x39e62e870eb9aa4f!2sJakarta!5e0!3m2!1sen!2sid!4v1629789876543!5m2!1sen!2sid"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9732250684287!2d107.60635507475682!3d-6.893805993105349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e79861a09a0f%3A0x7edcd4dc41c3c5e1!2sGedung%20Science%20and%20Techno%20Park%20(STP)%20ITB!5e0!3m2!1sid!2sid!4v1727146483487!5m2!1sid!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -115,7 +118,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">Connect With Us on Social Media</h2>
             <div class="flex justify-center space-x-6 mt-6">
-                <a href="#" class="text-gray-400 hover:text-[#00294B]">
+                <a href="https://www.facebook.com/people/PT-FAST-Indo-Talenta/61550075167981/" target="_blank"
+                    class="text-gray-400 hover:text-[#00294B]">
                     <span class="sr-only">Facebook</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
@@ -123,7 +127,8 @@
                             clip-rule="evenodd" />
                     </svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-[#00294B]">
+                <a href="https://www.instagram.com/fitalenta.id/" target="_blank"
+                    class="text-gray-400 hover:text-[#00294B]">
                     <span class="sr-only">Instagram</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
@@ -131,14 +136,15 @@
                             clip-rule="evenodd" />
                     </svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-[#00294B]">
+                {{-- <a href="#" class="text-gray-400 hover:text-[#00294B]">
                     <span class="sr-only">Twitter</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-[#00294B]">
+                </a> --}}
+                <a href="https://www.linkedin.com/company/pt-fast-indo-talenta/" target="_blank"
+                    class="text-gray-400 hover:text-[#00294B]">
                     <span class="sr-only">LinkedIn</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -156,7 +162,8 @@
         </div>
     @endif
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/6281234567890" target="_blank"
+    <a href="https://api.whatsapp.com/send?phone=6285281791931&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
+        target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
@@ -164,4 +171,17 @@
 
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script>
+        function gettogetInputValue() {
+            let inputName = document.getElementById("name").value;
+            let inputTopik = document.getElementById("subject").value;
+            let email = document.getElementById("email").value;
+            let inputMessage = document.getElementById("message").value;
+            let tombol = document.getElementById('startcon')
+            let hrefAwal =
+                `https://wa.me/6285281791931?text=_Assalamualaikum_%20*Admin%20Fitalenta*%0A%0APerkenalkan%20saya%20${inputName}%0A%0AIngin%20bertanya%20terkait%20topik%20${inputTopik}%0AJika%20ada%20file%20yang%20bisa%20di%20kirimkan%20ke%20email%20saya%20${email}%0A%0Apesan%20tambahan%3A%0A${inputMessage}%0A%0AHatur%20Nuhun%20sebelumnya%20Admin%0AWassalamualaikum`
+            tombol.href = hrefAwal
+        }
+    </script>
 @endpush

@@ -70,7 +70,7 @@
                                 alt="{{ $articles->first()->title }}" class="w-full h-64 md:h-full object-cover">
                         </div>
                         <div class="md:w-1/2 p-8">
-                            <span class="text-secondary font-semibold">Newest</span>
+                            {{-- <span class="text-secondary font-semibold">Newest</span> --}}
                             <h2 class="text-3xl font-bold mb-4 mt-2">{{ $articles->first()->title }}
                             </h2>
                             <p class="text-gray-700 mb-4">{{ $articles->first()->excerpt }}</p>

@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->text('content');
             $table->string('excerpt');
             $table->foreignId('author_id')->constrained('users')->onDelete('cascade');
-            $table->dateTime('published_at')->nullable();
+            $table->dateTime('event_date')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->string('image')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->default(2);

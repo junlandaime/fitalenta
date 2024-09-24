@@ -15,13 +15,13 @@ class Article extends Model
         'excerpt',
         'author_id',
         'category_id',
-        'published_at',
+        'event_date',
         'is_featured',
         'image',
     ];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'event_date' => 'datetime',
         'is_featured' => 'boolean',
     ];
 
@@ -32,7 +32,7 @@ class Article extends Model
 
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at')->where('published_at', '<=', now());
+        return $query->whereNotNull('event_date')->where('event_date', '<=', now());
     }
 
     public function scopeFeatured($query)

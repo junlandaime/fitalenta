@@ -77,13 +77,13 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="published_at">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="event_date">
                     Publish Date (leave blank for draft)
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('published_at') border-red-500 @enderror"
-                    id="published_at" type="datetime-local" name="published_at" value="{{ old('published_at') }}">
-                @error('published_at')
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('event_date') border-red-500 @enderror"
+                    id="event_date" type="datetime-local" name="event_date" value="{{ old('event_date') }}">
+                @error('event_date')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
             </div>

@@ -7,9 +7,9 @@
     <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center pt-16">{{ $article->title }}</h1>
-            <p class="text-xl md:text-2xl mb-8 text-center">Fitalenta Blog: Insights, tips, and news from the world of
+            {{-- <p class="text-xl md:text-2xl mb-8 text-center">Fitalenta Blog: Insights, tips, and news from the world of
                 business and talent
-                management</p>
+                management</p> --}}
         </div>
     </div>
 
@@ -38,7 +38,7 @@
                             class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <p class="font-bold">{{ $article->author->name }}</p>
-                            <p class="text-sm text-gray-600">Published on {{ $article->published_at->format('F j, Y') }} •
+                            <p class="text-sm text-gray-600">Published on {{ $article->event_date->format('F j, Y') }} •
                                 {{ $article->read_time }} min read</p>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
         </section>
 
         <!-- Comment Section -->
-        <section class="py-20 bg-white px-4 lg:px-40">
+        {{-- <section class="py-20 bg-white px-4 lg:px-40">
             <section class="py-20 bg-white ">
                 <div class="container mx-auto px-4">
                     <h2 class="text-3xl font-bold mb-8">Comments</h2>
@@ -225,8 +225,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
 
 
-        @endsection
+    @endsection

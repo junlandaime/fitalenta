@@ -120,13 +120,20 @@
                     <div class="bg-white rounded-lg overflow-hidden shadow-md">
                         <img src="{{ Storage::url($item->image) }}" alt="News 1" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <div class="text-sm text-gray-600 mb-2">{{ $item->created_at->format('F j, Y') }}</div>
+                            <div class="text-sm text-gray-600 mb-2">{{ $item->event_date->diffForHumans() }}</div>
+                            {{-- <div class="text-sm text-gray-600 mb-2">{{ $item->created_at->format('F j, Y') }}</div> --}}
                             <span class="text-sm text-secondary font-semibold">{{ $item->category->name }}</span>
 
                             <h3 class="font-bold text-xl mb-2">{{ $item->title }}</h3>
                             <p class="text-gray-700">{{ $item->excerpt }}</p>
-                            <a href="{{ route('events.index') }}"
-                                class="inline-block mt-4 text-secondary hover:underline">Read More</a>
+                            @if ($item->category->name == 'Event')
+                                <a href="{{ route('events.show', $item) }}"
+                                    class="inline-block mt-4 text-secondary hover:underline">See Event</a>
+                            @else
+                                <a href="{{ route('articles.show', $item) }}"
+                                    class="inline-block mt-4 text-secondary hover:underline">Read Article</a>
+                            @endif
+
                         </div>
                     </div>
                 @endforeach
@@ -141,8 +148,7 @@
             <h2 class="text-3xl font-bold mb-12 text-center" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">About FITALENTA</h2>
             <div class="flex flex-wrap items-center" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
                 <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                    <img src="https://fitalenta.co.id/wp-content/uploads/2024/01/Slice-9-1024x1024.png"
-                        alt="About FITALENTA" class="rounded-lg shadow-lg">
+                    <img src="{{ asset('landing.png') }}" alt="About FITALENTA" class="rounded-lg shadow-lg">
                 </div>
                 <div class="w-full md:w-1/2 md:pl-12">
                     <h3 class="text-5xl font-bold mb-4">We Are Here to Be Lifetime Business Partner for Companies and
@@ -152,7 +158,7 @@
                         We’re in this business since 2023 and provide the best services</h3>
                     <p class="mb-6">We focus on providing quality services in Talent Management and Business Consultant
                     </p>
-                    <a href="#"
+                    <a href="{{ route('services') }}"
                         class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">Learn
                         More About Us</a>
                 </div>
@@ -166,21 +172,21 @@
             <h2 class="text-3xl font-bold mb-12 text-center" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Impact</h2>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
-                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 500) count++ }, 20)">
+                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 750) count++ }, 1)">
                     <div class="text-4xl font-bold text-primary mb-2" x-text="count + '+'"></div>
-                    <div class="text-gray-600">Clients Served</div>
+                    <div class="text-gray-600">Peserta Kegiatan</div>
                 </div>
-                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 50) count++ }, 100)">
+                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 122) count++ }, 30)">
                     <div class="text-4xl font-bold text-primary mb-2" x-text="count + '+'"></div>
-                    <div class="text-gray-600">Expert Consultants</div>
+                    <div class="text-gray-600">Philanthropy Affiliate</div>
                 </div>
-                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 20) count++ }, 200)">
+                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 30) count++ }, 100)">
                     <div class="text-4xl font-bold text-primary mb-2" x-text="count + '+'"></div>
-                    <div class="text-gray-600">Countries Reached</div>
+                    <div class="text-gray-600">Successfull Event and Training</div>
                 </div>
-                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 95) count++ }, 50)">
-                    <div class="text-4xl font-bold text-primary mb-2" x-text="count + '%'"></div>
-                    <div class="text-gray-600">Client Satisfaction</div>
+                <div x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 120) count++ }, 50)">
+                    <div class="text-4xl font-bold text-primary mb-2" x-text="count + '+'"></div>
+                    <div class="text-gray-600">Asal Universitas, Sekolah, dan Lembaga</div>
                 </div>
             </div>
         </div>
@@ -191,7 +197,7 @@
     <!-- Our Team Section with Slider -->
     <div class="py-16 bg-white lg:px-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Team</h2>
+            <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Experts</h2>
             <div class="swiper team-swiper">
                 <div class="swiper-wrapper" x-data="{ activeProfile: null }" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
 
@@ -210,13 +216,13 @@
                                     <p>{{ $member['position'] }}</p>
                                 </div>
                             </div>
-                            <div x-show="activeProfile === {{ $index }}"
+                            {{-- <div x-show="activeProfile === {{ $index }}"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="opacity-0 transform scale-90"
                                 x-transition:enter-end="opacity-100 transform scale-100"
                                 class="mt-4 p-4 bg-white rounded-lg shadow-lg">
                                 <p class="text-sm">{{ strtolower($member['bio']) }} </p>
-                            </div>
+                            </div> --}}
                         </div>
                     @endforeach
                 </div>
@@ -228,39 +234,7 @@
     {{-- <x-team-section :members="$teamMembers" /> --}}
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-primary text-white md:px-40">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
 
-                <div class="md:w-1/2 md:pl-12" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
-                    <h2 class="text-3xl lg:text-5xl font-bold mb-6">We’re able to become lifetime partner in business and
-                        career
-                        development</h2>
-
-                    <div class="flex space-x-4 py-7">
-                        <div class="text-center" x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 12) count++ }, 200)">
-                            <div class="text-4xl font-bold" x-text="count + '+'"></div>
-                            <div class="text-sm">Completed Training
-                            </div>
-                        </div>
-                        <div class="text-center" x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 360) count++ }, 20)">
-                            <div class="text-4xl font-bold" x-text="count + '+'">50+</div>
-                            <div class="text-sm">Nasional Participants</div>
-                        </div>
-                        <div class="text-center" x-data="{ count: 0 }" x-init="setInterval(() => { if (count < 95) count++ }, 50)">
-                            <div class="text-4xl font-bold" x-text="count + ''">10+</div>
-                            <div class="text-sm">Campuses, Institution, and School</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <img src="https://fitalenta.co.id/wp-content/uploads/2023/05/two-business-executives-negotiating-contract-conference-room-1.jpg"
-                        alt="About Us" class="rounded-lg shadow-md float">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonial Section with Slider -->
     <div class="py-16 bg-gray-100 lg:px-40">
@@ -273,11 +247,11 @@
                             <div class="bg-white rounded-lg shadow-lg p-6">
                                 <div class="flex items-center mb-4">
                                     <img src="{{ asset('images/testimonials/' . $testimonial['image']) }}"
-                                        alt="{{ $testimonial['author'] }}"
+                                        alt="{{ $testimonial['client_name'] }}"
                                         class="w-16 h-16 rounded-full mr-4 object-cover">
                                     <div>
-                                        <p class="font-semibold">{{ $testimonial['author'] }}</p>
-                                        <p class="text-sm text-gray-500">{{ $testimonial['position'] }},
+                                        <p class="font-semibold">{{ $testimonial['client_name'] }}</p>
+                                        <p class="text-sm text-gray-500">
                                             {{ $testimonial['company'] }}</p>
                                     </div>
                                 </div>
@@ -303,7 +277,7 @@
     <!-- Our Clients Section with Slider -->
     <div class="py-16 bg-white lg:px-11">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Clients</h2>
+            <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Mitra and Clients</h2>
             <div class="swiper clients-swiper" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
                 <div class="swiper-wrapper">
                     @foreach ($clients as $client)
@@ -330,7 +304,8 @@
         </div>
     </div>
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/6281234567890" target="_blank"
+    <a href="https://api.whatsapp.com/send?phone=6285281791931&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
+        target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>

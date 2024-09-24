@@ -9,7 +9,8 @@
     </div>
     <div class="p-6">
         <div class="flex justify-between items-center mb-2">
-            <span class="text-sm text-gray-600">{{ $event->event_date->format('F j, Y') }}</span>
+            <span class="text-sm text-gray-600">{{ $event->event_date->diffForHumans() }}</span>
+            {{-- <span class="text-sm text-gray-600">{{ $event->event_date->format('F j, Y') }}</span> --}}
             @if ($event->event_date->isPast())
                 <span class="px-2 py-1 bg-gray-500 text-white text-xs rounded-full">Past</span>
             @else

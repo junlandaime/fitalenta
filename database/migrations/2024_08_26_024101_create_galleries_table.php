@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('image');
-            $table->string('category')->nullable();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            // $table->string('category')->nullable();
             $table->boolean('is_featured')->default(false);
+            $table->dateTime('event_date')->nullable();
             $table->integer('order')->default(0);
             $table->timestamps();
         });
