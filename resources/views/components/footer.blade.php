@@ -3,7 +3,7 @@
         <div class="flex flex-wrap justify-between">
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
                 <h3 class="text-lg font-semibold mb-4">About FITALENTA</h3>
-                <p class="text-sm w-8/12">We are dedicated to empowering businesses and individuals through innovative
+                <p class="text-sm w-[60%]">We are dedicated to empowering businesses and individuals through innovative
                     talent
                     management and business consulting solutions.</p>
             </div>
@@ -23,7 +23,7 @@
                     Jl. Ganesha No. 15E, <br>Lb. Siliwangi, Kec. Coblong <br>
                     Bandung 40132
                 </p>
-                <p class="text-sm mt-2">Phone: +62 852 81791931<br>Email: info@fitalenta.com</p>
+                <p class="text-sm mt-2">Phone: +62 852 81791931<br>Email: info@fitalenta.co.id</p>
             </div>
             <div class="w-full md:w-1/4">
                 <h3 class="text-lg font-semibold mb-4">Follow Us</h3>

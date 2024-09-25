@@ -34,7 +34,7 @@
         </div>
     </div>
     <!-- Article Filter and Search -->
-    <section class="py-8 bg-white px-4 lg:px-40" x-data="{ category: 'all', searchQuery: '' }">
+    {{-- <section class="py-8 bg-white px-4 lg:px-40" x-data="{ category: 'all', searchQuery: '' }">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-between items-center">
                 <div class="flex flex-wrap gap-4 mb-4 md:mb-0">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Featured Article -->
     @if ($articles)

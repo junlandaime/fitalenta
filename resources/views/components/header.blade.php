@@ -4,21 +4,21 @@
     <div class="container mx-auto px-4 text-white pt-2">
         <div class="flex justify-between items-center py-2 text-sm">
             <div class="flex items-center space-x-4">
-                <a href="mailto:info@fitalenta.com" class="hover:text-secondary transition duration-300">
-                    <i class="fas fa-envelope mr-2"></i>info@fitalenta.com
+                <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300">
+                    <i class="fas fa-envelope mr-2"></i>info@fitalenta.co.id
                 </a>
                 <a href="tel:+6285281791931" class="hover:text-secondary transition duration-300">
                     <i class="fas fa-phone mr-2"></i>+62 852 81791931
                 </a>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="https://www.facebook.com/people/PT-FAST-Indo-Talenta/61550075167981/"
+                <a href="https://www.facebook.com/people/PT-FAST-Indo-Talenta/61550075167981/" target="_blank"
                     class="hover:text-secondary transition duration-300"><i class="fab fa-facebook-f"></i></a>
                 {{-- <a href="#" class="hover:text-secondary transition duration-300"><i
                         class="fab fa-twitter"></i></a> --}}
-                <a href="https://www.linkedin.com/company/pt-fast-indo-talenta/"
+                <a href="https://www.linkedin.com/company/pt-fast-indo-talenta/" target="_blank"
                     class="hover:text-secondary transition duration-300"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/fitalenta.id/"
+                <a href="https://www.instagram.com/fitalenta.id/" target="_blank"
                     class="hover:text-secondary transition duration-300"><i class="fab fa-instagram"></i></a>
             </div>
         </div>

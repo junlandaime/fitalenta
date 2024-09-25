@@ -47,7 +47,7 @@
                         <li>Networking opportunities with peers and industry experts</li>
                         <li>Exhibition showcasing innovative business solutions</li>
                     </ul>
-                    <h3 class="text-2xl font-bold mb-4">Speakers</h3>
+                    {{-- <h3 class="text-2xl font-bold mb-4">Speakers</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
                         <div class="text-center">
                             <img src="https://picsum.photos/id/1025/150/150" alt="Speaker 1"
@@ -67,7 +67,7 @@
                             <h4 class="font-bold">Mike Johnson</h4>
                             <p class="text-sm text-gray-600">CTO, Future Finance</p>
                         </div>
-                    </div>
+                    </div> --}}
                     <h3 class="text-2xl font-bold mb-4">Agenda</h3>
                     <div class="space-y-4">
                         <div>

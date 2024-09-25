@@ -114,7 +114,7 @@ class HomeController extends Controller
         $validatedData = $request->validated();
 
         // Send email
-        Mail::to('info@fitalenta.com')->send(new ContactFormSubmission($validatedData));
+        Mail::to('info@fitalenta.co.id')->send(new ContactFormSubmission($validatedData));
 
         // Store in database if needed
         // Contact::create($validatedData);

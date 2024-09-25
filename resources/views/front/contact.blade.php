@@ -96,7 +96,7 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-lg">Email</h3>
-                                <p>info@fitalenta.com</p>
+                                <p>info@fitalenta.co.id</p>
                             </div>
                         </div>
                     </div>
