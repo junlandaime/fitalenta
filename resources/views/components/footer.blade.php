@@ -1,14 +1,15 @@
-<footer class="bg-[#00294B] text-white py-8">
+<footer class="bg-[#00294B] text-white py-8 lg:pl-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-between">
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
                 <h3 class="text-lg font-semibold mb-4">About FITALENTA</h3>
-                <p class="text-sm w-[60%]">We are dedicated to empowering businesses and individuals through innovative
+                <p class="text-sm text-wrap">We are dedicated to empowering businesses and individuals through
+                    innovative
                     talent
                     management and business consulting solutions.</p>
             </div>
-            <div class="w-full md:w-1/4 mb-6 md:mb-0">
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 text-center">
+                <h3 class="text-lg font-semibold mb-4 tex">Quick Links</h3>
                 <ul class="text-sm">
                     <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
                     <li><a href="{{ route('events.index') }}" class="hover:underline">Event</a></li>
@@ -25,7 +26,7 @@
                 </p>
                 <p class="text-sm mt-2">Phone: +62 852 81791931<br>Email: info@fitalenta.co.id</p>
             </div>
-            <div class="w-full md:w-1/4">
+            <div class="w-full md:w-1/4 te">
                 <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
                 <div class="flex space-x-4">
                     <a href="https://www.facebook.com/people/PT-FAST-Indo-Talenta/61550075167981/" target="blank"
@@ -38,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-8 border-t border-gray-700 pt-8 text-sm text-center">
+        <div class="mt-8 border-t border-gray-700 pt-8 lg:pr-32 text-sm text-center">
             <p>&copy; {{ date('Y') }} FITALENTA. All rights reserved.</p>
         </div>
     </div>
