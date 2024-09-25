@@ -80,6 +80,7 @@
             </div>
         </div>
     </section>
+    {{-- https://x.com/intent/tweet?text=Baru%20Terpilih%20Jadi%20Presiden%20Sri%20Lanka%2C%20Dissanayake%20Langsung%20Bubarkan%20Parlemen%20dan%20Serukan%20Pemilu%20Segera%0A%0AKlik%20untuk%20baca%3A%20https%3A%2F%2Fwww.kompas.com%2Fglobal%2Fread%2F2024%2F09%2F25%2F114500770%2Fbaru-terpilih-jadi-presiden-sri-lanka-dissanayake-langsung-bubarkan%3Futm_source%3DTwitter%26utm_medium%3DReferral%26utm_campaign%3DSticky_Desktop%0A%0AKompascom%2B%20baca%20berita%20tanpa%20iklan%3A%20https%3A%2F%2Fkmp.im%2Fplus2%20%0ADownload%20aplikasi%3A%20https%3A%2F%2Fkmp.im%2Fapp2&url=https%3A%2F%2Fwww.kompas.com%2Fglobal%2Fread%2F2024%2F09%2F25%2F114500770%2Fbaru-terpilih-jadi-presiden-sri-lanka-dissanayake-langsung-bubarkan%3Futm_source%3DTwitter%26utm_medium%3DReferral%26utm_campaign%3DSticky_Desktop --}}
 
     <!-- Share Section -->
     <section class="py-20 bg-white px-4 lg:px-40">
@@ -88,7 +89,7 @@
                 <div class="flex flex-wrap items-center justify-center">
                     <h3 class="text-xl font-bold mr-4">Share this article:</h3>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank"
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank"
                             class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
@@ -104,7 +105,7 @@
                                 </path>
                             </svg>
                         </a>
-                        <a href="whatsapp://send?text={{ url()->current() }}"
+                        <a href="whatsapp://send?text={{ url()->current() }}" target="_blank"
                             class="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -113,6 +114,7 @@
                             </svg>
                         </a>
                         <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}"
+                            target="_blank"
                             class="bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"

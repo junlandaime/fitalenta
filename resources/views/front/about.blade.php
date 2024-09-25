@@ -31,11 +31,23 @@
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <h2 class="text-3xl font-bold mb-6">Our Story</h2>
-                    <p class="mb-6">PT FAST Indo Talenta (FITALENTA) adalah Perusahaan yang bergerak dibidang Human
-                        CapitalManagement,denganberfokuspada peopleempowermentmelaluilayanan
-                        recruitment&assessment,penyediaantalent, pelatihan berbasis kompetensi, dan
-                        pendampinganbisnisberbasistarget.
-                        Empoweringpeople</p>
+                    <p class="mb-6">PT FAST Indo Talenta (FITALENTA) lahir dengan tekad kuat untuk menjembatani
+                        kesenjangan antara dunia pendidikan dan dunia kerja di Indonesia. Semakin banyak lulusan baru yang
+                        menghadapi tantangan dalam mencari pekerjaan, meskipun tingkat partisipasi tenaga kerja terus
+                        meningkat. FITALENTA hadir sebagai solusi atas permasalahan ini, dengan menawarkan layanan
+                        rekrutmen, pengembangan keterampilan, dan mentoring bisnis yang dirancang khusus untuk membantu
+                        individu siap terjun ke dunia kerja. Visi perusahaan adalah menjadi mitra seumur hidup bagi setiap
+                        individu dan perusahaan dalam meraih kesejahteraan finansial yang berkelanjutan. Melalui
+                        program-program seperti kesempatan bekerja dan belajar di luar negeri, FITALENTA membantu memperluas
+                        peluang karier bagi para talenta Indonesia, baik di tingkat nasional maupun global.</p>
+                    <p class="mb-6">Sebagai bagian dari misinya, FITALENTA berfokus pada penciptaan ekosistem yang
+                        mempercepat proses rekrutmen, dengan memanfaatkan teknologi terkini untuk menghubungkan
+                        talenta-talenta unggul dengan kesempatan kerja yang sesuai, baik di dalam negeri maupun luar negeri.
+                        Selain itu, FITALENTA ingin tumbuh bersama para mitra dan karyawan, membangun kolaborasi yang
+                        berkelanjutan. Dengan semangat #EmpoweringPeople, FITALENTA berkomitmen untuk meningkatkan kualitas
+                        sumber daya manusia Indonesia dan mewujudkan masa depan yang lebih sejahtera melalui akses yang
+                        lebih mudah dan cepat ke dunia kerja.
+                    </p>
                 </div>
             </div>
         </div>
@@ -84,7 +96,8 @@
                     <div class="flex items-center">
                         <div class="w-1/2 pr-8 text-right">
                             <h3 class="text-2xl font-bold">2023</h3>
-                            <p>FITALENTA is founded with a vision to empower businesses and individuals</p>
+                            <p>FITALENTA was founded with the vision to empower businesses and individuals by bridging the
+                                gap between talent and opportunity.</p>
                         </div>
                         <div class="w-4 h-4 bg-[#00294B] rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
                         <div class="w-1/2 pl-8"></div>
@@ -94,7 +107,11 @@
                         <div class="w-4 h-4 bg-[#00294B] rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
                         <div class="w-1/2 pl-8">
                             <h3 class="text-2xl font-bold">2024</h3>
-                            <p>Expansion of services and growing client base</p>
+                            <p>FITALENTA is strengthening its foundation and expanding into seven key services: Financial
+                                Industry Services, Human Capital Program, Next Level Eduventures, Business Affiliate
+                                Program, Marketing Program, Event Organizer, and STEMSpark. These services provide
+                                comprehensive solutions, empowering individuals and businesses to grow in a competitive
+                                market.</p>
                         </div>
                     </div>
                     <!-- Add more timeline items as needed -->
@@ -164,6 +181,8 @@
     <div class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+            <img class="rounded-3xl mb-12" src="{{ asset('direktur.jpg') }}" alt="direktur">
+            <img class="rounded-3xl mb-12" src="{{ asset('manajemen.jpg') }}" alt="manajemen">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{-- @foreach ($teamMembers as $member)
                     <div class="bg-gray-100 p-6 rounded-lg text-center">
@@ -182,10 +201,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">Join Our Team</h2>
             <p class="text-xl mb-8">We're always looking for talented individuals to join our growing team.</p>
-            {{-- <a href="{{ route('careers') }}"
+            <a href="{{ route('contact') }}"
                 class="bg-white text-[#00294B] px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">
-                View Open Positions
-            </a> --}}
+                Call For possibility
+            </a>
         </div>
     </div>
 @endsection

@@ -16,6 +16,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <link rel="icon" href="{{ asset('favicon.png') }}">
+
+
+    {{-- meta text --}}
+    <!-- Meta tags untuk SEO dan sharing -->
+    <meta name="description"
+        content="FITALENTA - Empowering businesses and careers through innovative talent management and business consulting solutions. Expert services in global recruitment, professional training, and business growth strategies.">
+
+    <meta name="keywords"
+        content="FITALENTA, business consulting, talent management, professional training, global recruitment, career development, business growth, HR solutions, Indonesia">
+
+    <meta name="author" content="FITALENTA">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fitalenta.co.id/">
+    <meta property="og:title" content="FITALENTA - Empowering Businesses and Careers">
+    <meta property="og:description"
+        content="Expert business consulting and talent management solutions for sustainable growth and success. Unlock your potential with FITALENTA.">
+    <meta property="og:image" content="https://www.fitalenta.co.id/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.fitalenta.co.id/">
+    <meta property="twitter:title" content="FITALENTA - Empowering Businesses and Careers">
+    <meta property="twitter:description"
+        content="Expert business consulting and talent management solutions for sustainable growth and success. Unlock your potential with FITALENTA.">
+    <meta property="twitter:image" content="https://www.fitalenta.co.id/images/twitter-image.jpg">
+
+    <!-- Tambahan meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="copyright" content="FITALENTA">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
