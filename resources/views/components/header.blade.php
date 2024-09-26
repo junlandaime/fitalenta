@@ -1,14 +1,14 @@
 <header x-data="{ isScrolled: false }" x-init="window.addEventListener('scroll', () => { isScrolled = window.pageYOffset > 50 })"
     :class="{ 'bg-transparent': !isScrolled, 'bg-primary shadow-lg': isScrolled }"
-    class="fixed w-full z-50 transition duration-300  md:px-40">
+    class="fixed w-full z-50 transition duration-300  sm:px-40">
     <div class="container mx-auto px-4 text-white pt-2">
         <div class="flex justify-between items-center py-2 text-[10px]">
-            <div class="flex items-center space-x-4 text-[10px] md:text-sm">
-                <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300">
-                    <i class="fas fa-envelope mr-2"></i>info@fitalenta.co.id
+            <div class="flex items-center space-x-4 text-[10px] sm:text-xs">
+                <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300 ">
+                    <i class="fas fa-envelope sm:mr-2 "></i>info@fitalenta.co.id
                 </a>
-                <a href="tel:+6285281791931" class="hover:text-secondary transition duration-300">
-                    <i class="fas fa-phone mr-2"></i>+62 852 81791931
+                <a href="tel:+6285281791931" class="hover:text-secondary transition duration-300 hidden sm:block">
+                    <i class="fas fa-phone sm:mr-2"></i>+62 852 81791931
                 </a>
             </div>
             <div class="flex items-center space-x-4">
@@ -72,19 +72,19 @@
         <div x-show="open" class="md:hidden" style="display: none;">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="{{ route('home') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('home') ? 'bg-[#003a6b]' : '' }}">Home</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('home') ? 'bg-[#003a6b]' : '' }}">Home</a>
                 <a href="{{ route('events.index') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('events.index') ? 'bg-[#003a6b]' : '' }}">Event</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('events.index') ? 'bg-[#003a6b]' : '' }}">Event</a>
                 <a href="{{ route('services') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('services') ? 'bg-[#003a6b]' : '' }}">Services</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('services') ? 'bg-[#003a6b]' : '' }}">Services</a>
                 <a href="{{ route('articles.index') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('articles.index') ? 'bg-[#003a6b]' : '' }}">Blog</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('articles.index') ? 'bg-[#003a6b]' : '' }}">Blog</a>
                 <a href="{{ route('gallery') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('gallery') ? 'bg-[#003a6b]' : '' }}">Gallery</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('gallery') ? 'bg-[#003a6b]' : '' }}">Gallery</a>
                 <a href="{{ route('about') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('about') ? 'bg-[#003a6b]' : '' }}">About</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('about') ? 'bg-[#003a6b]' : '' }}">About</a>
                 <a href="{{ route('contact') }}"
-                    class="px-3 py-2 rounded-md text-base font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact') ? 'bg-[#003a6b]' : '' }}">Contact</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact') ? 'bg-[#003a6b]' : '' }}">Contact</a>
             </div>
         </div>
     </nav>

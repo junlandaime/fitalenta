@@ -287,7 +287,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination hidden md:block"></div>
             </div>
         </div>
     </div>

@@ -34,12 +34,12 @@
                     <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
                         class="w-full rounded-lg shadow-lg mb-8">
                     <div class="flex items-center mb-8">
-                        <img src="{{ $article->author->avatar }}" alt="{{ $article->author->name }}"
-                            class="w-12 h-12 rounded-full mr-4">
+                        {{-- <img src="{{ $article->author->avatar }}" alt="{{ $article->author->name }}"
+                            class="w-12 h-12 rounded-full mr-4"> --}}
                         <div>
                             <p class="font-bold">{{ $article->author->name }}</p>
-                            <p class="text-sm text-gray-600">Published on {{ $article->event_date->format('F j, Y') }} •
-                                {{ $article->read_time }} min read</p>
+                            <p class="text-sm text-gray-600">Published on {{ $article->event_date->format('F j, Y') }} </p>
+                            {{-- {{ $article->read_time }} min read</p> --}}
                         </div>
                     </div>
                     <div class="prose max-w-none">

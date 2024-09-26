@@ -8,8 +8,8 @@
                     talent
                     management and business consulting solutions.</p>
             </div>
-            <div class="w-full md:w-1/4 mb-6 md:mb-0 text-center">
-                <h3 class="text-lg font-semibold mb-4 tex">Quick Links</h3>
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 md:text-center">
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                 <ul class="text-sm">
                     <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
                     <li><a href="{{ route('events.index') }}" class="hover:underline">Event</a></li>
