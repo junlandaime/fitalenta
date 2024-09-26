@@ -94,12 +94,16 @@
                     @foreach ($services as $service)
                         <div class="swiper-slide">
                             <div class="service-card bg-white p-6 rounded-lg text-center shadow-lg">
-                                <div
-                                    class="service-icon w-20 h-20 mx-auto mb-4 bg-secondary rounded-full flex items-center justify-center">
-                                    <i class="fas fa-{{ $service->icon }} text-3xl text-white"></i>
-                                </div>
+                                <a href="{{ route('services.show', $service) }}">
+                                    <div
+                                        class="service-icon w-20 h-20 mx-auto mb-4 bg-secondary rounded-full flex items-center justify-center">
+                                        <i class="fas fa-{{ $service->icon }} text-3xl text-white"></i>
+                                    </div>
+                                </a>
 
-                                <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
+                                <a href="{{ route('services.show', $service) }}">
+                                    <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
+                                </a>
                                 <p class="text-gray-600">{!! Str::limit($service->short, 100) !!}</p>
                             </div>
                         </div>
