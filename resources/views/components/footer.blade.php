@@ -1,4 +1,4 @@
-<footer class="bg-[#00294B] text-white py-8 lg:pl-32">
+<footer class="bg-[#00294B] text-white py-8 md:pl-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-between">
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-8 border-t border-gray-700 pt-8 lg:pr-32 text-sm text-center">
+        <div class="mt-8 border-t border-gray-700 pt-8 md:pr-32 text-sm text-center">
             <p>&copy; {{ date('Y') }} FITALENTA. All rights reserved.</p>
         </div>
     </div>

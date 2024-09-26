@@ -3,7 +3,7 @@
     class="fixed w-full z-50 transition duration-300  md:px-40">
     <div class="container mx-auto px-4 text-white pt-2">
         <div class="flex justify-between items-center py-2 text-[10px]">
-            <div class="flex items-center space-x-4 text-[10px] md:text-xs">
+            <div class="flex items-center space-x-4 text-[10px] ">
                 <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300 ">
                     <i class="fas fa-envelope md:mr-2 "></i>info@fitalenta.co.id
                 </a>
