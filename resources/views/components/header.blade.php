@@ -1,14 +1,14 @@
 <header x-data="{ isScrolled: false }" x-init="window.addEventListener('scroll', () => { isScrolled = window.pageYOffset > 50 })"
     :class="{ 'bg-transparent': !isScrolled, 'bg-primary shadow-lg': isScrolled }"
-    class="fixed w-full z-50 transition duration-300  sm:px-40">
+    class="fixed w-full z-50 transition duration-300  md:px-40">
     <div class="container mx-auto px-4 text-white pt-2">
         <div class="flex justify-between items-center py-2 text-[10px]">
-            <div class="flex items-center space-x-4 text-[10px] sm:text-xs">
+            <div class="flex items-center space-x-4 text-[10px] md:text-xs">
                 <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300 ">
-                    <i class="fas fa-envelope sm:mr-2 "></i>info@fitalenta.co.id
+                    <i class="fas fa-envelope md:mr-2 "></i>info@fitalenta.co.id
                 </a>
-                <a href="tel:+6285281791931" class="hover:text-secondary transition duration-300 hidden sm:block">
-                    <i class="fas fa-phone sm:mr-2"></i>+62 852 81791931
+                <a href="tel:+6285281791931" class="hover:text-secondary transition duration-300 hidden md:block">
+                    <i class="fas fa-phone md:mr-2"></i>+62 852 81791931
                 </a>
             </div>
             <div class="flex items-center space-x-4">
