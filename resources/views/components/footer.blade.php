@@ -3,10 +3,10 @@
         <div class="flex flex-wrap justify-between">
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
                 <h3 class="text-lg font-semibold mb-4">About FITALENTA</h3>
-                <p class="text-sm text-wrap">We are dedicated to empowering businesses and individuals through
+                <p class="text-sm">We are dedicated to <br>empowering businesses <br>and individuals <br>through
                     innovative
                     talent
-                    management and business consulting solutions.</p>
+                    management <br>and business consulting solutions.</p>
             </div>
             <div class="w-full md:w-1/4 mb-6 md:mb-0 md:text-center">
                 <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
