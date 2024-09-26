@@ -71,7 +71,7 @@
                         <div class="text-center text-white px-4">
                             <h1 class="ttext-4xl md:text-6xl font-bold mb-4">{{ $slide['title'] }}</h1>
                             <p class="text-xl md:text-2xl mb-8">{{ $slide['subtitle'] }}</p>
-                            <a href="{{ $slide['cta_link'] }}"
+                            <a href="{{ $slide['cta_link'] }}" target="_blank"
                                 class="bg-secondary text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-opacity-90 transition duration-300">
                                 {{ $slide['cta_text'] }}
                             </a>
@@ -100,7 +100,7 @@
                                 </div>
 
                                 <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
-                                <p class="text-gray-600">{{ Str::limit($service->description, 100) }}</p>
+                                <p class="text-gray-600">{!! Str::limit($service->short, 100) !!}</p>
                             </div>
                         </div>
                     @endforeach
@@ -199,14 +199,14 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Experts</h2>
             <div class="swiper team-swiper">
-                <div class="swiper-wrapper" x-data="{ activeProfile: null }" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
+                <div class="swiper-wrapper mb-10" x-data="{ activeProfile: null }" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
 
                     @foreach ($teamMembers as $index => $member)
                         <div class="swiper-slide w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4">
                             <div class="relative group" @mouseenter="activeProfile={{ $index }}"
                                 @mouseleave="activeProfile=null">
                                 <img src="{{ Storage::url($member->image) }}" alt="{{ $member['name'] }}"
-                                    class="w-full h-80- object-cover rounded-lg shadow-lg">
+                                    class="w-full h-[24rem] object-cover rounded-lg shadow-lg">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                                 </div>
@@ -241,14 +241,14 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">What Our Clients Say</h2>
             <div class="swiper testimonial-swiper" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper mb-10">
                     @foreach ($testimonials as $testimonial)
                         <div class="swiper-slide">
                             <div class="bg-white rounded-lg shadow-lg p-6">
                                 <div class="flex items-center mb-4">
-                                    <img src="{{ asset('images/testimonials/' . $testimonial['image']) }}"
+                                    {{-- <img src="{{ asset('images/testimonials/' . $testimonial['image']) }}"
                                         alt="{{ $testimonial['client_name'] }}"
-                                        class="w-16 h-16 rounded-full mr-4 object-cover">
+                                        class="w-16 h-16 rounded-full mr-4 object-cover"> --}}
                                     <div>
                                         <p class="font-semibold">{{ $testimonial['client_name'] }}</p>
                                         <p class="text-sm text-gray-500">
@@ -279,7 +279,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" x-init="gsap.from($el, { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: $el, start: 'top 80%' } })">Our Mitra and Clients</h2>
             <div class="swiper clients-swiper" x-init="gsap.from($el.children, { opacity: 0, y: 50, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: $el, start: 'top 80%' } })">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper mb-14">
                     @foreach ($clients as $client)
                         <div class="swiper-slide flex items-center justify-center">
                             <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client['name'] }}"
@@ -366,6 +366,9 @@
             new Swiper('.team-swiper', {
                 slidesPerView: 1,
                 spaceBetween: 20,
+                autoplay: {
+                    delay: 3000,
+                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -383,6 +386,9 @@
             new Swiper('.testimonial-swiper', {
                 slidesPerView: 1,
                 spaceBetween: 20,
+                autoplay: {
+                    delay: 3000,
+                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,

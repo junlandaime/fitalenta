@@ -19,7 +19,7 @@
             <ol class="list-reset flex text-sm">
                 <li><a href="{{ route('home') }}" class="text-primary">Home</a></li>
                 <li><span class="mx-2">/</span></li>
-                <li><a href="{{ route('services') }}" class="text-primary">Servuces</a></li>
+                <li><a href="{{ route('services') }}" class="text-primary">Services</a></li>
                 <li><span class="mx-2">/</span></li>
                 <li class="text-gray-700">{{ $service->name }}</li>
             </ol>

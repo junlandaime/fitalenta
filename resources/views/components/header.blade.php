@@ -2,8 +2,8 @@
     :class="{ 'bg-transparent': !isScrolled, 'bg-primary shadow-lg': isScrolled }"
     class="fixed w-full z-50 transition duration-300  md:px-40">
     <div class="container mx-auto px-4 text-white pt-2">
-        <div class="flex justify-between items-center py-2 text-sm">
-            <div class="flex items-center space-x-4">
+        <div class="flex justify-between items-center py-2 text-[10px]">
+            <div class="flex items-center space-x-4 text-[10px] md:text-sm">
                 <a href="mailto:info@fitalenta.co.id" class="hover:text-secondary transition duration-300">
                     <i class="fas fa-envelope mr-2"></i>info@fitalenta.co.id
                 </a>

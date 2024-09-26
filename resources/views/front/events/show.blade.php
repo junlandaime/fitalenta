@@ -39,14 +39,14 @@
                         alt="{{ $event->title }}" class="w-full rounded-lg shadow-lg mb-8">
                     <h2 class="text-3xl font-bold mb-4">About the Event</h2>
                     <p class="mb-6">{!! $event->description !!}</p>
-                    <h3 class="text-2xl font-bold mb-4">What to Expect</h3>
+                    {{-- <h3 class="text-2xl font-bold mb-4">What to Expect</h3>
                     <ul class="list-disc list-inside mb-6">
                         <li>Inspiring keynote speeches from industry thought leaders</li>
                         <li>Panel discussions on emerging trends and challenges</li>
                         <li>Interactive workshops and breakout sessions</li>
                         <li>Networking opportunities with peers and industry experts</li>
                         <li>Exhibition showcasing innovative business solutions</li>
-                    </ul>
+                    </ul> --}}
                     {{-- <h3 class="text-2xl font-bold mb-4">Speakers</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
                         <div class="text-center">
@@ -68,7 +68,7 @@
                             <p class="text-sm text-gray-600">CTO, Future Finance</p>
                         </div>
                     </div> --}}
-                    <h3 class="text-2xl font-bold mb-4">Agenda</h3>
+                    {{-- <h3 class="text-2xl font-bold mb-4">Agenda</h3>
                     <div class="space-y-4">
                         <div>
                             <h4 class="font-bold">9:00 AM - Opening Ceremony</h4>
@@ -90,7 +90,7 @@
                             <h4 class="font-bold">4:30 PM - Networking Reception</h4>
                             <p>Connect with fellow attendees and speakers</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!-- Sidebar -->
@@ -118,7 +118,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <span>{{ $event->event_date->format('g:i A') }}</span>
+                                <span>{{ $event->event_date->format('H:i') }} WIB</span>
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-6 h-6 text-secondary mr-2" fill="none" stroke="currentColor"

@@ -3,6 +3,12 @@
 @section('title', $image->title)
 
 @section('content')
+    <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-24 md:py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {{-- <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center pt-16">Upcoming Events</h1> --}}
+            {{-- <p class="text-xl md:text-2xl mb-8 text-center">Join us for exciting events and expand your network</p> --}}
+        </div>
+    </div>
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-4xl font-bold mb-4">{{ $image->title }}</h1>

@@ -24,9 +24,9 @@ class UserSeeder extends Seeder
         ]);
 
         // Create some regular users
-        User::factory()->count(10)->create();
+        // User::factory()->count(10)->create();
 
         // Create some editor users
-        User::factory()->count(3)->create(['role' => 'editor']);
+        // User::factory()->count(3)->create(['role' => 'editor']);
     }
 }
