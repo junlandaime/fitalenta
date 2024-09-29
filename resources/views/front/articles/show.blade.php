@@ -2,10 +2,22 @@
 
 @section('title', $article->title)
 
-@section('link', '{{ url()->current() }}')
-@section('metatitle', 'FITALENTABlogs - {{ $article->title }}')
-@section('metaimage', 'https://fitalenta.co.id/storage/articles/{{ $article->image }}')
-@section('metadescription', '{{ Str::limit($article->excerpt, 100) }}')
+@section('meta_description')
+    {{ Str::limit($article->excerpt, 160) }}
+@endsection
+
+@section('og_title', $article->title . ' - FITALENTABlogs')
+
+@section('og_description')
+    {{ Str::limit($article->excerpt, 200) }}
+@endsection
+
+@section('og_image', 'https://fitalenta.co.id/storage/articles/' . $article->image)
+
+@section('additional_meta_tags')
+    <meta name="author" content="{{ $article->author->name }}">
+    <meta name="published_date" content="{{ $article->published_at->toDateString() }}">
+@endsection
 
 @section('content')
 

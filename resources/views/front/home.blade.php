@@ -1,70 +1,72 @@
 @extends('layouts.app2')
 
 @section('title', 'Welcome to FITALENTA')
-
+{{-- 
 @section('link', '{{ url()->current() }}')
 @section('metatitle', 'FITALENTA - Empowering Businesses and Careers')
 @section('metaimage', 'https://info.fitalenta.co.id/wp-content/uploads/2024/01/Slice-9-1024x1024.png')
 @section('metadescription',
     'Expert business consulting and talent management solutions for sustainable growth and
-    success. Unlock your potential with FITALENTA.')
+    success. Unlock your potential with FITALENTA.') --}}
 
 
-    @push('styles')
-        <style>
-            [x-cloak] {
-                display: none !important;
+
+
+@push('styles')
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+            transition: transform 0.6s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+
+        .client-logo {
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
             }
 
-            .service-card:hover .service-icon {
-                transform: rotateY(360deg);
-                transition: transform 0.6s;
+            50% {
+                transform: translateY(-20px);
             }
 
-            .service-card:hover {
-                transform: translateY(-10px);
-                transition: transform 0.3s;
+            100% {
+                transform: translateY(0px);
             }
+        }
 
-            .team-member:hover img {
-                transform: scale(1.1);
-                transition: transform 0.3s;
-            }
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
 
-            .client-logo {
-                filter: grayscale(100%);
-                transition: filter 0.3s;
-            }
+        <style>[x-cloak] {
+            display: none !important;
+        }
+    </style>
+@endpush
 
-            .client-logo:hover {
-                filter: grayscale(0%);
-            }
-
-            @keyframes float {
-                0% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-20px);
-                }
-
-                100% {
-                    transform: translateY(0px);
-                }
-            }
-
-            .float {
-                animation: float 6s ease-in-out infinite;
-            }
-
-            <style>[x-cloak] {
-                display: none !important;
-            }
-        </style>
-    @endpush
-
-    {{-- @dd($combinedItems) --}}
+{{-- @dd($combinedItems) --}}
 
 @section('content')
     <!-- Hero Section with Image Slider -->
