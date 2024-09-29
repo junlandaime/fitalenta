@@ -16,7 +16,7 @@
 
 @section('additional_meta_tags')
     <meta name="author" content="{{ $article->author->name }}">
-    <meta name="published_date" content="{{ $article->published_at->toDateString() }}">
+    {{-- <meta name="published_date" content="{{ $article->published_at->toDateString() }}"> --}}
 @endsection
 
 @section('content')
