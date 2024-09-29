@@ -12,7 +12,7 @@
     {{ Str::limit($article->excerpt, 200) }}
 @endsection
 
-@section('og_image', 'https://fitalenta.co.id/storage/articles/' . $article->image)
+@section('og_image', 'https://fitalenta.co.id/storage/' . $article->image)
 
 @section('additional_meta_tags')
     <meta name="author" content="{{ $article->author->name }}">
