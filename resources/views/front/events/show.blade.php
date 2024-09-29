@@ -2,6 +2,23 @@
 
 @section('title', $event->title)
 
+@section('meta_description')
+    {{ Str::limit($event->location, 160) }}
+@endsection
+
+@section('og_title', $event->title . ' - FITALENTA Events')
+
+@section('og_description')
+    {{ Str::limit($event->location, 200) . $event->event_date->toDateString() }}
+@endsection
+
+@section('og_image', 'https://fitalenta.co.id/storage/' . $event->image)
+
+@section('additional_meta_tags')
+    {{-- <meta name="author" content="{{ $event->author->name }}"> --}}
+    {{-- <meta name="published_date" content="{{le->publis $artiched_at->toDateString() }}"> --}}
+@endsection
+
 @section('content')
 
     <section class="relative bg-primary text-white py-32">

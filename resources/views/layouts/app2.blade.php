@@ -35,9 +35,9 @@
     <meta property="og:description" content="@yield(
         'og_description',
         'Expert business consulting and talent management solutions for sustainable growth and
-        success. Unlock your potential with FITALENTA.'
+            success. Unlock your potential with FITALENTA.'
     )">
-    <meta property="og:image" content="@yield('og_image', 'https://info.fitalenta.co.id/wp-content/uploads/2024/01/Slice-9-1024x1024.png')">
+    <meta property="og:image" content="@yield('og_image', 'https://fitalenta.co.id/landing.png')">
 
     <!-- Additional meta tags -->
     @yield('additional_meta_tags')
