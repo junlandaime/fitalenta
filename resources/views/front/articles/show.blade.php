@@ -2,6 +2,11 @@
 
 @section('title', $article->title)
 
+@section('link', '{{ url()->current() }}')
+@section('metatitle', 'FITALENTABlogs - {{ $article->title }}')
+@section('metaimage', 'https://fitalenta.co.id/storage/articles/{{ $article->image }}')
+@section('metadescription', '{{ Str::limit($article->excerpt, 100) }}')
+
 @section('content')
 
     <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-32">

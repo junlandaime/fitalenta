@@ -30,11 +30,10 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.fitalenta.co.id/">
-    <meta property="og:title" content="FITALENTA - Empowering Businesses and Careers">
-    <meta property="og:description"
-        content="Expert business consulting and talent management solutions for sustainable growth and success. Unlock your potential with FITALENTA.">
-    <meta property="og:image" content="https://info.fitalenta.co.id/wp-content/uploads/2024/01/Slice-9-1024x1024.png">
+    <meta property="og:url" content="@yield('link')">
+    <meta property="og:title" content="@yield('metatitle')">
+    <meta property="og:description" content="@yield('metadescription')">
+    <meta property="og:image" content="@yield('metaimage')">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
