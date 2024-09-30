@@ -438,4 +438,58 @@
             });
         });
     </script>
+
+    <script>
+        // resources/js/visitor-counter.js
+
+        // Fungsi untuk menghitung kunjungan
+        function countVisit() {
+            fetch('/api/count-visitor', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin' // Penting untuk mengirim cookies jika diperlukan untuk sesi
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visit counted:', data);
+                    // Anda bisa menambahkan logika tambahan di sini jika diperlukan
+                })
+                .catch(error => {
+                    console.error('Error counting visit:', error);
+                });
+        }
+
+        // Fungsi untuk mengambil dan menampilkan statistik
+        function displayStats() {
+            fetch('/api/visitor-stats', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('total-visitors').textContent = data.total_visitors;
+                    document.getElementById('total-visits').textContent = data.total_visits;
+                    document.getElementById('today-visits').textContent = data.today_visits;
+                })
+                .catch(error => {
+                    console.error('Error fetching stats:', error);
+                });
+        }
+
+        // Panggil fungsi-fungsi ini ketika halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            countVisit();
+            displayStats();
+        });
+
+        // Jika Anda menggunakan Vue.js atau React, Anda bisa memanggil fungsi ini
+        // dalam hook lifecycle yang sesuai, seperti mounted() di Vue atau useEffect() di React
+    </script>
 @endpush
