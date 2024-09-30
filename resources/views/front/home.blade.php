@@ -484,10 +484,7 @@
         }
 
         // Panggil fungsi-fungsi ini ketika halaman dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            countVisit();
-            displayStats();
-        });
+
 
         // Jika Anda menggunakan Vue.js atau React, Anda bisa memanggil fungsi ini
         // dalam hook lifecycle yang sesuai, seperti mounted() di Vue atau useEffect() di React

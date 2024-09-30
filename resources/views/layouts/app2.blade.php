@@ -35,7 +35,7 @@
     <meta property="og:description" content="@yield(
         'og_description',
         'Expert business consulting and talent management solutions for sustainable growth and
-                        success. Unlock your potential with FITALENTA.'
+                            success. Unlock your potential with FITALENTA.'
     )">
     <meta property="og:image" content="@yield('og_image', 'https://fitalenta.co.id/landing.png')">
 
@@ -60,6 +60,13 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            countVisit();
+            displayStats();
+        });
+    </script>
 
     <!-- Additional Styles -->
     @stack('styles')
