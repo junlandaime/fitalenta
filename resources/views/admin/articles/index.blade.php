@@ -36,6 +36,7 @@
                         <tr>
                             <th class="text-left py-2">Title</th>
                             <th class="text-left py-2">Author</th>
+                            <th class="text-left py-2">Views</th>
                             <th class="text-left py-2">Status</th>
                             <th class="text-left py-2">Created At</th>
                             <th class="text-left py-2">Actions</th>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td class="py-2">{{ $article->title }}</td>
                                 <td class="py-2">{{ $article->author->name }}</td>
+                                <td class="py-2">{{ $article->views }}</td>
                                 <td class="py-2">
                                     @if ($article->published_at)
                                         <span
