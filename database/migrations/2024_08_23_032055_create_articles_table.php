@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false);
             $table->string('image')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->default(2);
+            $table->unsignedInteger('views')->default(0);
             $table->timestamps();
         });
     }

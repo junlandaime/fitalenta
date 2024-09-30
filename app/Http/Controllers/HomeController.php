@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Client;
 use App\Models\Article;
+use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\HeroSlide;
 use App\Models\TeamMember;
+use App\Models\ArticleView;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactRequest;
-use App\Models\Gallery;
 
 class HomeController extends Controller
 {
@@ -77,11 +78,26 @@ class HomeController extends Controller
         return view('front.articles.index', compact('articles', 'categories'));
     }
 
-    public function article_show(Article $article)
+    public function article_show(Article $article, Request $request)
     {
         // if (!$article->is_published) {
         //     abort(404);
         // }
+
+        $viewed = $request->session()->get('viewed_articles', []);
+
+        if (!in_array($article->id, $viewed)) {
+            $articleView = new ArticleView();
+            $articleView->article_id = $article->id;
+            $articleView->ip_address = $request->ip();
+            $articleView->user_agent = $request->userAgent();
+            $articleView->save();
+
+            $viewed[] = $article->id;
+            $request->session()->put('viewed_articles', $viewed);
+
+            $article->increment('views');
+        }
 
         $relatedArticles = Article::published()
             ->where('id', '!=', $article->id)

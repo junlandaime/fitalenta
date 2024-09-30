@@ -122,6 +122,24 @@
             </div>
         </div>
 
+        <div class="container mx-auto mt-10">
+            <h1 class="text-3xl font-bold mb-5">Website Visitor Statistics</h1>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold mb-2">Total Visitors</h2>
+                    <p id="total-visitors" class="text-3xl font-bold">-</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold mb-2">Total Visits</h2>
+                    <p id="total-visits" class="text-3xl font-bold">-</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold mb-2">Today's Visits</h2>
+                    <p id="today-visits" class="text-3xl font-bold">-</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Aksi Cepat -->
         <div class="mt-8">
             <h2 class="text-2xl font-semibold mb-4">Quick Actions</h2>
@@ -170,3 +188,37 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        function countVisit() {
+            fetch('/api/count-visitor')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visit counted:', data);
+                })
+                .catch(error => {
+                    console.error('Error counting visit:', error);
+                });
+        }
+
+        function displayStats() {
+            fetch('/api/visitor-stats')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('total-visitors').textContent = data.total_visitors;
+                    document.getElementById('total-visits').textContent = data.total_visits;
+                    document.getElementById('today-visits').textContent = data.today_visits;
+                })
+                .catch(error => {
+                    console.error('Error fetching stats:', error);
+                });
+        }
+
+        // Call these functions when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            countVisit();
+            displayStats();
+        });
+    </script>
+@endpush
