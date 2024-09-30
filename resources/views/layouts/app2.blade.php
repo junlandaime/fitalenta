@@ -35,7 +35,7 @@
     <meta property="og:description" content="@yield(
         'og_description',
         'Expert business consulting and talent management solutions for sustainable growth and
-            success. Unlock your potential with FITALENTA.'
+                success. Unlock your potential with FITALENTA.'
     )">
     <meta property="og:image" content="@yield('og_image', 'https://fitalenta.co.id/landing.png')">
 
@@ -206,6 +206,58 @@
                     },
                 });
             });
+        </script>
+
+        <script>
+            function visitorCounter() {
+                return {
+                    stats: {
+                        totalVisitors: '-',
+                        totalVisits: '-',
+                        todayVisits: '-'
+                    },
+                    init() {
+                        this.countVisit();
+                        this.fetchStats();
+                    },
+                    countVisit() {
+                        fetch('/api/count-visitor', {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                },
+                                credentials: 'same-origin'
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Visit counted:', data);
+                            })
+                            .catch(error => {
+                                console.error('Error counting visit:', error);
+                            });
+                    },
+                    fetchStats() {
+                        fetch('/api/visitor-stats', {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                },
+                                credentials: 'same-origin'
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                this.stats.totalVisitors = data.total_visitors;
+                                this.stats.totalVisits = data.total_visits;
+                                this.stats.todayVisits = data.today_visits;
+                            })
+                            .catch(error => {
+                                console.error('Error fetching stats:', error);
+                            });
+                    }
+                }
+            }
         </script>
     @endpush
 </body>
