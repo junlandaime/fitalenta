@@ -8,9 +8,11 @@ use App\Models\Article;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\EventView;
 use App\Models\HeroSlide;
 use App\Models\TeamMember;
 use App\Models\ArticleView;
+use App\Models\ServiceView;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,8 +64,22 @@ class HomeController extends Controller
         return view('front.events.index', compact('events', 'categories'));
     }
 
-    public function event_show(Event $event)
+    public function event_show(Event $event, Request $request)
     {
+        $viewed = $request->session()->get('viewed_events', []);
+        if (!in_array($event->id, $viewed)) {
+            $eventView = new EventView();
+            $eventView->event_id = $event->id;
+            $eventView->ip_address = $request->ip();
+            $eventView->user_agent = $request->userAgent();
+            $eventView->save();
+
+            $viewed[] = $event->id;
+            $request->session()->put('viewed_events', $viewed);
+
+            $event->increment('views');
+        }
+
         $relatedEvents = Event::where('is_featured', true)
             ->orderBy('event_date', 'asc')
             ->take(3)
@@ -115,8 +131,22 @@ class HomeController extends Controller
         return view('front.services.index', compact('services', 'categories'));
     }
 
-    public function service_show(Service $service)
+    public function service_show(Service $service, Request $request)
     {
+        $viewed = $request->session()->get('viewed_services', []);
+        if (!in_array($service->id, $viewed)) {
+            $serviceView = new ServiceView();
+            $serviceView->service_id = $service->id;
+            $serviceView->ip_address = $request->ip();
+            $serviceView->user_agent = $request->userAgent();
+            $serviceView->save();
+
+            $viewed[] = $service->id;
+            $request->session()->put('viewed_services', $viewed);
+
+            $service->increment('views');
+        }
+
         return view('front.services.show', compact('service'));
     }
 

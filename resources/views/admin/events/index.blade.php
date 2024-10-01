@@ -41,6 +41,8 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location
                         </th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views
+                        </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions
@@ -53,6 +55,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->title }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->event_date->format('M d, Y') }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->location }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $event->views }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 @if ($event->event_date->isPast())
                                     <span class="px-2 py-1 bg-gray-200 text-gray-800 rounded-full text-xs">Past</span>

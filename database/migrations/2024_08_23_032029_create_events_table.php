@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('link')->nullable();
             $table->string('image')->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->unsignedInteger('views')->default(0);
+
             $table->timestamps();
         });
     }

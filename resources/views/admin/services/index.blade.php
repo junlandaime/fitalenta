@@ -37,6 +37,7 @@
                             <th class="text-left py-2">Name</th>
                             <th class="text-left py-2">Price</th>
                             <th class="text-left py-2">Duration</th>
+                            <th class="text-left py-2">Views</th>
                             <th class="text-left py-2">Featured</th>
                             <th class="text-left py-2">Actions</th>
                         </tr>
@@ -48,6 +49,7 @@
                                 <td class="py-2">{{ $service->price ? '$' . number_format($service->price, 2) : 'N/A' }}
                                 </td>
                                 <td class="py-2">{{ $service->duration }}</td>
+                                <td class="py-2">{{ $service->views }}</td>
                                 <td class="py-2">
                                     @if ($service->is_featured)
                                         <span

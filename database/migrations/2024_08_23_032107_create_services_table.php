@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 10, 2)->nullable();
             $table->string('duration')->nullable();
+            $table->unsignedInteger('views')->default(0);
             $table->boolean('is_featured')->default(false);
             $table->string('icon')->nullable();
             $table->timestamps();
