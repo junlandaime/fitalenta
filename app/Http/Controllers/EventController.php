@@ -40,7 +40,8 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('admin.events.show', compact('event'));
+        $googleCalendarUrl = EventController::generateGoogleCalendarUrl($event->id);
+        return view('admin.events.show', compact('event', 'googleCalendarUrl'));
     }
 
     public function edit(Event $event)

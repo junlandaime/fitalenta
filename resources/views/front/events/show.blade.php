@@ -172,7 +172,7 @@
                                     Now</a>
                             </div>
                             <div class="mt-4">
-                                <a href="{{ $googleCalendarUrl = EventController::generateGoogleCalendarUrl($event->id) }}"
+                                <a href="{{ $googleCalendarUrl }}"
                                     class="block w-full bg-primary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Add
                                     to Calendar</a>
                             </div>
