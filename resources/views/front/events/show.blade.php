@@ -167,12 +167,12 @@
                             </div>
                         @else
                             <div class="mt-8">
-                                <a href="#"
+                                <a href="{{ $event->link }}"
                                     class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Register
                                     Now</a>
                             </div>
                             <div class="mt-4">
-                                <a href="#"
+                                <a href="{{ $googleCalendarUrl = $eventController->generateGoogleCalendarUrl($event->id) }}"
                                     class="block w-full bg-primary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Add
                                     to Calendar</a>
                             </div>

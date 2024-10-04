@@ -73,4 +73,30 @@ class EventController extends Controller
         $event->delete();
         return redirect()->route('admin.events.index')->with('success', 'Event deleted successfully.');
     }
+
+    public function generateGoogleCalendarUrl(Event $event)
+    {
+        $event = Event::findOrFail($event->id);
+
+        $baseUrl = 'https://calendar.google.com/calendar/r/eventedit';
+
+        $params = [
+            'text' => urlencode($event->title),
+            'dates' => $this->formatDates($event->event_date, $event->event_date),
+            'details' => urlencode($event->description . "\n\nFor details, link here: " . route('events.show', $event->id)),
+            'location' => urlencode($event->location),
+        ];
+
+        $url = $baseUrl . '?' . http_build_query($params);
+
+        return $url;
+    }
+
+    private function formatDates($startTime, $endTime)
+    {
+        $start = $startTime->format('Ymd\THis\Z');
+        $end = $endTime->format('Ymd\THis\Z');
+
+        return $start . '/' . $end;
+    }
 }
