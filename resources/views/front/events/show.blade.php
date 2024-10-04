@@ -167,7 +167,7 @@
                             </div>
                         @else
                             <div class="mt-8">
-                                <a href="{{ $event->link }}"
+                                <a href="{{ $event->link }}" target="_blank"
                                     class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Register
                                     Now</a>
                             </div>
