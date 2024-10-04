@@ -171,11 +171,11 @@
                                     class="block w-full bg-secondary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Register
                                     Now</a>
                             </div>
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <a href="{{ $googleCalendarUrl }}"
                                     class="block w-full bg-primary text-white text-center py-3 rounded-full hover:bg-opacity-90 transition duration-300">Add
                                     to Calendar</a>
-                            </div>
+                            </div> --}}
                         @endif
 
                     </div>
