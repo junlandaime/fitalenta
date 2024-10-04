@@ -27,7 +27,7 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
-        dd($request);
+        // dd($request);
         $validatedData = ($request->validated());
         if ($request->hasFile('image')) {
             $validatedData['image'] = $request->file('image')->store('events', 'public');
