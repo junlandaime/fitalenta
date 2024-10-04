@@ -15,8 +15,10 @@ class StoreEventRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255',
+            'link' => 'nullable|string|max:255',
             'description' => 'required|string',
-            'event_date' => 'required|date|after:today',
+            'event_date' => 'required|date',
             'location' => 'required|string|max:255',
             'is_featured' => 'boolean',
             'max_participants' => 'nullable|integer|min:1',

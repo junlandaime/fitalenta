@@ -11,9 +11,11 @@ class Event extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'description',
         'event_date',
         'location',
+        'link',
         'is_featured',
         'max_participants',
         'category_id',

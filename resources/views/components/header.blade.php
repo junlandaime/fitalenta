@@ -35,19 +35,19 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="{{ route('home') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('home') ? 'bg-[#003a6b]' : '' }}">Home</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('home*') ? 'bg-[#003a6b]' : '' }}">Home</a>
                         <a href="{{ route('events.index') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('events.index') ? 'bg-[#003a6b]' : '' }}">Event</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('events*') ? 'bg-[#003a6b]' : '' }}">Event</a>
                         <a href="{{ route('services') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('services') ? 'bg-[#003a6b]' : '' }}">Services</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('services*') ? 'bg-[#003a6b]' : '' }}">Services</a>
                         <a href="{{ route('articles.index') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('articles.index') ? 'bg-[#003a6b]' : '' }}">Blog</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('articles*') ? 'bg-[#003a6b]' : '' }}">Blog</a>
                         <a href="{{ route('gallery') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('gallery') ? 'bg-[#003a6b]' : '' }}">Gallery</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('gallery*') ? 'bg-[#003a6b]' : '' }}">Gallery</a>
                         <a href="{{ route('about') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('about') ? 'bg-[#003a6b]' : '' }}">About</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('about*') ? 'bg-[#003a6b]' : '' }}">About</a>
                         <a href="{{ route('contact') }}"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact') ? 'bg-[#003a6b]' : '' }}">Contact</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact*') ? 'bg-[#003a6b]' : '' }}">Contact</a>
                     </div>
                 </div>
                 <div class="mr-2 flex md:hidden">

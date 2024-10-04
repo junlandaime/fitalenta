@@ -52,7 +52,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach ($events as $event)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $event->title }}</td>
+                            <td class="px-6 py-4 whitespace">{{ $event->title }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->event_date->format('M d, Y') }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->location }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $event->views }}</td>

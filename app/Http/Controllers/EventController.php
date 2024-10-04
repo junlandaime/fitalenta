@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -26,11 +27,13 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
+        dd($request);
         $validatedData = ($request->validated());
         if ($request->hasFile('image')) {
             $validatedData['image'] = $request->file('image')->store('events', 'public');
             // $validated['foto']$img_url = time() . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
         }
+        $validatedData['slug'] = Str::slug($validatedData['title']);
         Event::create($validatedData);
         return redirect()->route('admin.events.index')->with('success', 'Event created successfully.');
     }
@@ -59,6 +62,7 @@ class EventController extends Controller
             $validatedData['image'] = $request->file('image')->store('events', 'public');
         }
 
+        $validatedData['slug'] = Str::slug($validatedData['title']);
 
         $event->update($validatedData);
         return redirect()->route('admin.events.index')->with('success', 'Event updated successfully.');
