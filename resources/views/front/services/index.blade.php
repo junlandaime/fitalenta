@@ -29,12 +29,12 @@
                     <h2 class="text-2xl font-bold mb-4">Filter by Category</h2>
                     <div class="flex flex-wrap gap-4">
                         <a href="{{ route('services') }}"
-                            class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-[#00294B] text-white' : 'bg-white text-[#00294B] border border-[#00294B]' }}">
+                            class="px-4 py-2 rounded-full {{ !request('category') ? 'bg-primary text-white' : 'bg-white text-[#00294B] border border-[#00294B]' }}">
                             All Services
                         </a>
                         @foreach ($categories as $category)
                             <a href="{{ route('services', ['category' => $category->slug]) }}"
-                                class="px-4 py-2 rounded-full {{ request('category') == $category->slug ? 'bg-[#00294B] text-white' : 'bg-white text-[#00294B] border border-[#00294B]' }}">
+                                class="px-4 py-2 rounded-full {{ request('category') == $category->slug ? 'bg-primary text-white' : 'bg-white text-[#00294B] border border-[#00294B]' }}">
                                 {{ $category->name }}
                             </a>
                         @endforeach
@@ -63,7 +63,7 @@
             <h2 class="text-3xl font-bold mb-4">Not Sure Which Service You Need?</h2>
             <p class="text-xl mb-8">Our team of experts is here to help you find the perfect solution for your business.</p>
             <a href="{{ route('contact') }}"
-                class="bg-[#00294B] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
+                class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
                 Get a Free Consultation
             </a>
         </div>

@@ -99,12 +99,12 @@
                             <p>FITALENTA was founded with the vision to empower businesses and individuals by bridging the
                                 gap between talent and opportunity.</p>
                         </div>
-                        <div class="w-4 h-4 bg-[#00294B] rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
                         <div class="w-1/2 pl-8"></div>
                     </div>
                     <div class="flex items-center">
                         <div class="w-1/2 pr-8"></div>
-                        <div class="w-4 h-4 bg-[#00294B] rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
                         <div class="w-1/2 pl-8">
                             <h3 class="text-2xl font-bold">2024</h3>
                             <p>FITALENTA is strengthening its foundation and expanding into seven key services: Financial
@@ -197,7 +197,7 @@
         </div>
     </div>
 
-    <div class="bg-[#00294B] text-white py-16">
+    <div class="bg-primary text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">Join Our Team</h2>
             <p class="text-xl mb-8">We're always looking for talented individuals to join our growing team.</p>

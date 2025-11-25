@@ -26,7 +26,7 @@
                         <p class="text-gray-700 text-base mb-2">{{ Str::limit($gallery->description, 50) }}</p>
                         <div class="flex justify-between items-center">
                             <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">{{ $gallery->category }}</span>
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">{{ $gallery->category->name }}</span>
                             <div class="flex space-x-2">
                                 <a href="{{ route('admin.gallery.show', $gallery) }}"
                                     class="text-blue-500 hover:text-blue-700">

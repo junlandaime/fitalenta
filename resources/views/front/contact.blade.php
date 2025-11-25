@@ -53,7 +53,7 @@
                                 required></textarea>
                         </div>
                         <a id="startcon" href="#" onclick="gettogetInputValue()"
-                            class="bg-[#00294B] text-white px-6 py-3 rounded-md hover:bg-[#001f3b] transition duration-300">Send
+                            class="bg-primary text-white px-6 py-3 rounded-md hover:bg-[#001f3b] transition duration-300">Send
                             Message</a>
                     </form>
                 </div>
@@ -85,7 +85,7 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-lg">Phone</h3>
-                                <p>+62 852 81791931</p>
+                                <p>+62 811 10119273</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -162,7 +162,7 @@
         </div>
     @endif
     <!-- WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=6285281791931&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
+    <a href="https://api.whatsapp.com/send?phone=6281110119273&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
         target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
         <i class="fab fa-whatsapp fa-2x"></i>
@@ -180,7 +180,7 @@
             let inputMessage = document.getElementById("message").value;
             let tombol = document.getElementById('startcon')
             let hrefAwal =
-                `https://wa.me/6285281791931?text=_Assalamualaikum_%20*Admin%20Fitalenta*%0A%0APerkenalkan%20saya%20${inputName}%0A%0AIngin%20bertanya%20terkait%20topik%20${inputTopik}%0AJika%20ada%20file%20yang%20bisa%20di%20kirimkan%20ke%20email%20saya%20${email}%0A%0Apesan%20tambahan%3A%0A${inputMessage}%0A%0AHatur%20Nuhun%20sebelumnya%20Admin%0AWassalamualaikum`
+                `https://wa.me/6281110119273?text=_Assalamualaikum_%20*Admin%20Fitalenta*%0A%0APerkenalkan%20saya%20${inputName}%0A%0AIngin%20bertanya%20terkait%20topik%20${inputTopik}%0AJika%20ada%20file%20yang%20bisa%20di%20kirimkan%20ke%20email%20saya%20${email}%0A%0Apesan%20tambahan%3A%0A${inputMessage}%0A%0AHatur%20Nuhun%20sebelumnya%20Admin%0AWassalamualaikum`
             tombol.href = hrefAwal
         }
     </script>

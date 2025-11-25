@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             TeamMemberSeeder::class,
             TestimonialSeeder::class,
             ClientSeeder::class,
+            CompanySeeder::class,
+            JobSeeder::class,
+            UniversityPartnerSeeder::class,
+            SettingsSeeder::class,
         ]);
     }
 }

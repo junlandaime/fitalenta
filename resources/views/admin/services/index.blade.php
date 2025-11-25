@@ -7,7 +7,7 @@
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-semibold">Manage Services</h1>
             <a href="{{ route('admin.services.create') }}"
-                class="bg-[#00294B] hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded">Add New Service</a>
+                class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded">Add New Service</a>
         </div>
 
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -24,7 +24,7 @@
                             Date</option>
                     </select>
                     <button type="submit"
-                        class="bg-[#00294B] hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded">Search</button>
+                        class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded">Search</button>
                 </div>
             </form>
 

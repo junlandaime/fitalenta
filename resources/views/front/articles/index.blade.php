@@ -104,7 +104,7 @@
                         @endforeach
                     </select>
                     <button type="submit"
-                        class="bg-[#00294B] text-white px-6 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
+                        class="bg-primary text-white px-6 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
                 </form>
             </div> --}}
 
@@ -135,7 +135,7 @@
                     <input type="email" name="email" placeholder="Enter your email" required
                         class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#00294B]">
                     <button type="submit"
-                        class="bg-[#00294B] text-white px-6 py-2 rounded-r-md hover:bg-[#001f3b] transition duration-300">Subscribe</button>
+                        class="bg-primary text-white px-6 py-2 rounded-r-md hover:bg-[#001f3b] transition duration-300">Subscribe</button>
                 </div>
             </form> --}}
         </div>

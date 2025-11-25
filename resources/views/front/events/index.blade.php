@@ -40,7 +40,7 @@
                         class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294B]"
                         value="{{ request('search') }}">
                     <button type="submit"
-                        class="bg-[#00294B] text-white px-6 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
+                        class="bg-primary text-white px-6 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
                 </form>
             </div>
 
@@ -65,7 +65,7 @@
             <h2 class="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
             <p class="text-xl mb-8">Contact us to suggest an event or inquire about custom training sessions.</p>
             <a href="{{ route('contact') }}"
-                class="bg-[#00294B] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
+                class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
                 Get in Touch
             </a>
         </div>

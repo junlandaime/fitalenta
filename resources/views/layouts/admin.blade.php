@@ -25,7 +25,7 @@
 
         <div class="flex">
             <!-- Sidebar -->
-            <aside class="w-64 bg-[#00294B] text-white min-h-screen">
+            <aside class="w-64 bg-primary text-white min-h-screen">
                 @include('components.admin-sidebar')
             </aside>
 

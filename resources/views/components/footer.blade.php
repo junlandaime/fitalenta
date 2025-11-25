@@ -1,4 +1,4 @@
-<footer class="bg-[#00294B] text-white py-8 md:pl-32">
+<footer class="bg-primary text-white py-8 md:pl-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-between">
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -24,7 +24,7 @@
                     Jl. Ganesha No. 15E, <br>Lb. Siliwangi, Kec. Coblong <br>
                     Bandung 40132
                 </p>
-                <p class="text-sm mt-2">Phone: +62 852 81791931<br>Email: info@fitalenta.co.id</p>
+                <p class="text-sm mt-2">Phone: +62 811 10119273<br>Email: info@fitalenta.co.id</p>
             </div>
             <div class="w-full md:w-1/4 te">
                 <h3 class="text-lg font-semibold mb-4">Follow Us</h3>

@@ -22,7 +22,7 @@
             {{ $article->created_at->format('F j, Y') }}
         </div>
         <a href="{{ route('articles.show', $article) }}"
-            class="inline-block bg-[#00294B] text-white py-2 px-4 rounded hover:bg-[#001f3b] transition duration-300">
+            class="inline-block bg-primary text-white py-2 px-4 rounded hover:bg-[#001f3b] transition duration-300">
             Read More
         </a>
     </div>
@@ -53,7 +53,7 @@
             {{ $article->created_at->format('F j, Y') }}
         </div>
         <a href="{{ route('articles.show', $article) }}"
-            class="inline-block bg-[#00294B] text-white py-2 px-4 rounded hover:bg-[#001f3b] transition duration-300">
+            class="inline-block bg-primary text-white py-2 px-4 rounded hover:bg-[#001f3b] transition duration-300">
             Read More
         </a>
     </div>

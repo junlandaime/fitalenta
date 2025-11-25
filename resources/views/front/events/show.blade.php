@@ -203,7 +203,7 @@
             <h2 class="text-3xl font-bold mb-4">Have Questions About This Event?</h2>
             <p class="text-xl mb-8">Our team is here to help. Don't hesitate to reach out for more information.</p>
             <a href="{{ route('contact') }}"
-                class="bg-[#00294B] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
+                class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
                 Contact Us
             </a>
         </div>

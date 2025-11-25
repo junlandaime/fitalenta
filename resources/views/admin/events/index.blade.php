@@ -6,7 +6,7 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-semibold">Manage Events</h1>
         <a href="{{ route('admin.events.create') }}"
-            class="bg-[#00294B] text-white px-4 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Add New Event</a>
+            class="bg-primary text-white px-4 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Add New Event</a>
     </div>
 
     <div class="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -25,7 +25,7 @@
                 </select>
             </div>
             <button type="submit"
-                class="bg-[#00294B] text-white px-4 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
+                class="bg-primary text-white px-4 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
         </form>
     </div>
 

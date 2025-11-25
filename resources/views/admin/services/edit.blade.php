@@ -83,7 +83,7 @@
 
             <div class="flex items-center justify-between">
                 <button
-                    class="bg-[#00294B] hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
                     Update Service
                 </button>

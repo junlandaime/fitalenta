@@ -73,7 +73,7 @@
                         @endif
 
                         <a href="{{ route('contact', ['service' => $service->slug]) }}"
-                            class="block w-full bg-[#00294B] text-white text-center py-3 rounded-md hover:bg-[#001f3b] transition duration-300">
+                            class="block w-full bg-primary text-white text-center py-3 rounded-md hover:bg-[#001f3b] transition duration-300">
                             Request This Service
                         </a>
 
@@ -127,7 +127,7 @@
             <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p class="text-xl mb-8">Let's work together to elevate your business with our {{ $service->name }} service.</p>
             <a href="{{ route('contact', ['service' => $service->slug]) }}"
-                class="bg-[#00294B] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
+                class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
                 Contact Us Now
             </a>
         </div>

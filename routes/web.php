@@ -6,14 +6,21 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Front\JobController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\TestimonialController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Front\StatAboutContactController;
+use App\Http\Controllers\Front\UniversityPartnerController;
+use App\Http\Controllers\Admin\JobController as AdminJobController;
+use App\Http\Controllers\Admin\UniversityPartnerController as AdminUniversityPartnerController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -27,8 +34,17 @@ Route::get('/articles/{article:slug}', [HomeController::class, 'article_show'])-
 Route::get('/services', [HomeController::class, 'service_index'])->name('services');
 Route::get('/services/{service}', [HomeController::class, 'service_show'])->name('services.show');
 
+Route::get('/persebaran-peserta-program', [UniversityPartnerController::class, 'index'])
+    ->name('university-partners.index');
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
+
 Route::get('/gallery', [HomeController::class, 'gallery_index'])->name('gallery');
 Route::get('/gallery/{gallery}', [HomeController::class, 'gallery_show'])->name('gallery.show');
+
+Route::get('/stat-about-contact', [StatAboutContactController::class, 'index'])->name('stat-about-contact.index');
+
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'submit'])->name('contact.submit');
@@ -46,6 +62,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('team-members', TeamMemberController::class)->names('admin.team-members');
     Route::resource('testimonials', TestimonialController::class)->names('admin.testimonials');
     Route::resource('clients', ClientController::class)->names('admin.clients');
+
+    Route::resource('university-partners', AdminUniversityPartnerController::class)->names('admin.university-partners');
+    Route::resource('companies', CompanyController::class)->names('admin.companies');
+    Route::resource('jobs', AdminJobController::class)->names('admin.jobs');
+
+    // Settings Routes
+    Route::get('settings', [SettingController::class, 'index'])->name('admin.settings.index');
+    Route::put('settings/stats', [SettingController::class, 'updateStats'])->name('admin.settings.update-stats');
+    Route::put('settings/contact', [SettingController::class, 'updateContactInfo'])->name('admin.settings.update-contact');
+    Route::put('settings/social', [SettingController::class, 'updateSocialMedia'])->name('admin.settings.update-social');
 
     Route::get('/hero-slides/t/{slide}', [HeroSlideController::class, 'toggle'])->name('admin.hero-slides.toggle');
     Route::get('/team-members/t/{member}', [TeamMemberController::class, 'toggle'])->name('admin.team-members.toggle');
