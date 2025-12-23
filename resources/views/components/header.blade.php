@@ -49,7 +49,7 @@
                         <a href="{{ route('contact') }}"
                             class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact*') ? 'bg-[#003a6b]' : '' }}">Contact</a>
                         <a href="https://registrasi.fitalenta.co.id/register"
-                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact*') ? 'bg-[#003a6b]' : '' }}">Registrasi</a>
+                            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] ">Registrasi</a>
                     </div>
                 </div>
                 <div class="mr-2 flex md:hidden">
@@ -88,7 +88,7 @@
                 <a href="{{ route('contact') }}"
                     class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact') ? 'bg-[#003a6b]' : '' }}">Contact</a>
                 <a href="https://registrasi.fitalenta.co.id/register"
-                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] {{ request()->routeIs('contact') ? 'bg-[#003a6b]' : '' }}">Registrasi</a>
+                    class="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003a6b] ">Registrasi</a>
             </div>
         </div>
     </nav>

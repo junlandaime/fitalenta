@@ -108,8 +108,8 @@
     <section class="py-16 bg-white lg:px-32" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Services</h2>
-            <div class="swiper services-swiper">
-                <div class="swiper-wrapper">
+            <div class="swiper services-swiper h-auto">
+                <div class="swiper-wrapper !h-[20%] md:!h-[45%]">
                     @foreach ($services as $service)
                         <div class="swiper-slide" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                             <div class="service-card bg-white p-6 rounded-lg text-center shadow-lg h-full">
@@ -119,7 +119,7 @@
                                         <i class="fas fa-{{ $service->icon }} text-3xl text-white"></i>
                                     </div>
                                     <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
-                                    <p class="text-gray-600">{{ Str::limit($service->short, 100) }}</p>
+                                    <p class="text-gray-600">{!! Str::limit($service->short, 200) !!}</p>
                                 </a>
                             </div>
                         </div>
@@ -130,25 +130,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="py-20 bg-white md:px-40" data-aos="fade-up">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap items-center">
-                <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
-                    <img src="{{ asset('landing.png') }}" alt="About FITALENTA" class="rounded-lg shadow-lg">
-                </div>
-                <div class="w-full md:w-1/2 md:pl-12" data-aos="fade-left">
-                    <h2 class="text-4xl font-bold mb-4">We Are Here to Be Lifetime Business Partner</h2>
-                    <p class="text-xl mb-6">We focus on providing quality services in Talent Management and Business
-                        Consulting since 2023</p>
-                    <a href="{{ route('services') }}"
-                        class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">
-                        Learn More About Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- News & Events Section -->
     <section class="py-20 bg-gray-100 lg:px-40" data-aos="fade-up">
@@ -174,6 +156,26 @@
                         </div>
                     </article>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white md:px-40" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                    <img src="{{ asset('landing.png') }}" alt="About FITALENTA" class="rounded-lg shadow-lg">
+                </div>
+                <div class="w-full md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-4xl font-bold mb-4">We Are Here to Be Lifetime Business Partner</h2>
+                    <p class="text-xl mb-6">We focus on providing quality services in Talent Management and Business
+                        Consulting since 2023</p>
+                    <a href="{{ route('services') }}"
+                        class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">
+                        Learn More About Us
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -208,9 +210,9 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Experts</h2>
             <div class="swiper team-swiper">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper !h-[30%] md:!h-[50%]">
                     @foreach ($teamMembers as $member)
-                        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                        <div class="swiper-slide " data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                             <div class="team-member relative group">
                                 <img src="{{ Storage::url($member->image) }}" alt="{{ $member->name }}"
                                     class="w-full h-96 object-cover rounded-lg shadow-lg">
@@ -235,7 +237,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">What Our Clients Say</h2>
             <div class="swiper testimonial-swiper">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper !h-[20%] md:!h-[40%]">
                     @foreach ($testimonials as $testimonial)
                         <div class="swiper-slide" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                             <div class="bg-white rounded-lg shadow-lg p-6">
@@ -264,7 +266,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Mitra and Clients</h2>
             <div class="swiper clients-swiper">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper !h-[10%] md:!h-[30%]">
                     @foreach ($clients as $client)
                         <div class="swiper-slide flex items-center justify-center" data-aos="fade-up"
                             data-aos-delay="{{ $loop->index * 100 }}">
