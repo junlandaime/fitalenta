@@ -15,6 +15,7 @@ class UpdateServiceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'short' => 'required|string',
             'description' => 'required|string',
             'price' => 'nullable|numeric|min:0',
             'duration' => 'nullable|string',
