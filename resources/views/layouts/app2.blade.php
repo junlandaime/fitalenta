@@ -64,12 +64,6 @@
 
 
     <!-- Additional Styles -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            countVisit();
-            displayStats();
-        });
-    </script>
     @stack('scriptwal')
     @stack('styles')
 </head>
