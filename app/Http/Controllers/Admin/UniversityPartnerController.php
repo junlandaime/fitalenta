@@ -60,11 +60,13 @@ class UniversityPartnerController extends Controller
 
         if ($request->hasFile('logo')) {
             // Delete old logo
-            if ($universityPartner->logo) {
+            if ($universityPartner->logo && Storage::disk('public')->exists($universityPartner->logo)) {
                 Storage::disk('public')->delete($universityPartner->logo);
             }
             $path = $request->file('logo')->store('university-logos', 'public');
             $validated['logo'] = $path;
+        } else {
+            unset($validated['logo']);
         }
 
         $universityPartner->update($validated);

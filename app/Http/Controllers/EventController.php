@@ -27,11 +27,11 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
-        // dd($request);
-        $validatedData = ($request->validated());
+        $validatedData = $request->validated();
         if ($request->hasFile('image')) {
             $validatedData['image'] = $request->file('image')->store('events', 'public');
-            // $validated['foto']$img_url = time() . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+        } else {
+            unset($validatedData['image']);
         }
         $validatedData['slug'] = Str::slug($validatedData['title']);
         Event::create($validatedData);
@@ -40,7 +40,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        $googleCalendarUrl = EventController::generateGoogleCalendarUrl($event->id);
+        $googleCalendarUrl = EventController::generateGoogleCalendarUrl($event);
         return view('admin.events.show', compact('event', 'googleCalendarUrl'));
     }
 
@@ -53,14 +53,16 @@ class EventController extends Controller
 
     public function update(UpdateEventRequest $request, Event $event)
     {
-        $validatedData = ($request->validated());
+        $validatedData = $request->validated();
 
         if ($request->hasFile('image')) {
             // Hapus foto lama jika ada
-            if ($event->image) {
+            if ($event->image && Storage::disk('public')->exists($event->image)) {
                 Storage::disk('public')->delete($event->image);
             }
             $validatedData['image'] = $request->file('image')->store('events', 'public');
+        } else {
+            unset($validatedData['image']);
         }
 
         $validatedData['slug'] = Str::slug($validatedData['title']);
@@ -71,6 +73,9 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
+        if ($event->image && Storage::disk('public')->exists($event->image)) {
+            Storage::disk('public')->delete($event->image);
+        }
         $event->delete();
         return redirect()->route('admin.events.index')->with('success', 'Event deleted successfully.');
     }

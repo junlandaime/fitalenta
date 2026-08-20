@@ -23,6 +23,18 @@
             </div>
 
             <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="link">
+                    Link Pendaftaran
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('link') border-red-500 @enderror"
+                    id="link" type="text" name="link" value="{{ old('link', $event->link) }}">
+                @error('link')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="category_id">
                     Category
                 </label>
@@ -60,7 +72,7 @@
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('event_date') border-red-500 @enderror"
                     id="event_date" type="datetime-local" name="event_date"
-                    value="{{ old('event_date', $event->event_date->format('Y-m-d\TH:i')) }}" required>
+                    value="{{ old('event_date', $event->event_date ? $event->event_date->format('Y-m-d\TH:i') : '') }}" required>
                 @error('event_date')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
@@ -96,7 +108,7 @@
                     Event Image
                 </label>
                 @if ($event->image)
-                    <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="mb-2 w-64">
+                    <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="mb-2 w-64 rounded">
                 @endif
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('image') border-red-500 @enderror"
@@ -128,3 +140,13 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        if (document.getElementById('description')) {
+            CKEDITOR.replace('description');
+        }
+    </script>
+@endpush

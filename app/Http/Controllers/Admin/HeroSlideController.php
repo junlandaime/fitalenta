@@ -63,8 +63,13 @@ class HeroSlideController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            if ($heroSlide->image && \Illuminate\Support\Facades\Storage::disk('public')->exists($heroSlide->image)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($heroSlide->image);
+            }
             $imagePath = $request->file('image')->store('hero-slides', 'public');
             $validatedData['image'] = $imagePath;
+        } else {
+            unset($validatedData['image']);
         }
 
         $heroSlide->update($validatedData);

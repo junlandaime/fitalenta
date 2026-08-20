@@ -56,10 +56,12 @@ class ArticleController extends Controller
 
         if ($request->hasFile('image')) {
             // Hapus foto lama jika ada
-            if ($article->image) {
+            if ($article->image && Storage::disk('public')->exists($article->image)) {
                 Storage::disk('public')->delete($article->image);
             }
             $validatedData['image'] = $request->file('image')->store('articles', 'public');
+        } else {
+            unset($validatedData['image']);
         }
         $article->update($validatedData);
         return redirect()->route('admin.articles.index')->with('success', 'Article updated successfully.');

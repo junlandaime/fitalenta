@@ -64,11 +64,13 @@ class CompanyController extends Controller
 
         if ($request->hasFile('logo')) {
             // Delete old logo
-            if ($company->logo) {
+            if ($company->logo && Storage::disk('public')->exists($company->logo)) {
                 Storage::disk('public')->delete($company->logo);
             }
             $path = $request->file('logo')->store('company-logos', 'public');
             $validated['logo'] = $path;
+        } else {
+            unset($validated['logo']);
         }
 
         $company->update($validated);

@@ -13,8 +13,9 @@ class Gallery extends Model
         'title',
         'description',
         'image',
-        'category',
+        'category_id',
         'is_featured',
+        'event_date',
         'order'
     ];
 

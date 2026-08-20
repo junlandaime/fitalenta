@@ -20,10 +20,10 @@ class StoreEventRequest extends FormRequest
             'description' => 'required|string',
             'event_date' => 'required|date',
             'location' => 'required|string|max:255',
-            'is_featured' => 'boolean',
+            'is_featured' => 'nullable|boolean',
             'max_participants' => 'nullable|integer|min:1',
-            'category_id' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ];
     }
 }

@@ -11,34 +11,42 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $images = Gallery::orderBy('created_at', 'desc')->get();
+        $images = Gallery::with('category')->orderBy('created_at', 'desc')->get();
         return view('admin.gallery.index', compact('images'));
     }
 
     public function create()
     {
-        return view('admin.gallery.create');
+        $categories = \App\Models\Category::orderBy('name', 'ASC')->get();
+        return view('admin.gallery.create', compact('categories'));
     }
 
     public function edit(Gallery $gallery)
     {
-        // $categories = Category::with(['child'])->withCount(['child'])->getParent()->orderBy('name', 'ASC')->get();
-
-        return view('admin.gallery.edit', compact('gallery'));
+        $categories = \App\Models\Category::orderBy('name', 'ASC')->get();
+        return view('admin.gallery.edit', compact('gallery', 'categories'));
     }
 
     public function show(Gallery $gallery)
     {
-        return view('admin.gallery.show', compact('gallery'));
+        $galleryItem = $gallery;
+        return view('admin.gallery.show', compact('gallery', 'galleryItem'));
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'nullable|max:255'
+            'title' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'description' => 'nullable|string|max:1000',
+            'event_date' => 'nullable|date',
+            'is_featured' => 'nullable|boolean',
+            'order' => 'nullable|integer|min:0',
         ]);
+
+        $validatedData['is_featured'] = $request->has('is_featured');
+        $validatedData['order'] = $validatedData['order'] ?? 0;
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('gallery', 'public');
@@ -53,28 +61,37 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $validatedData = $request->validate([
-            'title' => 'sometimes',
-            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'nullable|max:255'
+            'title' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'description' => 'nullable|string|max:1000',
+            'event_date' => 'nullable|date',
+            'is_featured' => 'nullable|boolean',
+            'order' => 'nullable|integer|min:0',
         ]);
+
+        $validatedData['is_featured'] = $request->has('is_featured');
+        $validatedData['order'] = $validatedData['order'] ?? ($gallery->order ?? 0);
 
         if ($request->hasFile('image')) {
             // Hapus foto lama jika ada
-            if ($gallery->image) {
+            if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
                 Storage::disk('public')->delete($gallery->image);
             }
             $validatedData['image'] = $request->file('image')->store('gallery', 'public');
+        } else {
+            unset($validatedData['image']);
         }
 
-
         $gallery->update($validatedData);
-        return redirect()->route('admin.gallery.index')->with('success', 'gallery updated successfully.');
+        return redirect()->route('admin.gallery.index')->with('success', 'Gallery updated successfully.');
     }
 
     public function destroy(Gallery $gallery)
     {
-        // dd($gallery);
-        Storage::disk('public')->delete($gallery->image);
+        if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
+            Storage::disk('public')->delete($gallery->image);
+        }
         $gallery->delete();
         return redirect()->route('admin.gallery.index')->with('success', 'Image deleted successfully.');
     }

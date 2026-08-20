@@ -54,8 +54,13 @@ class ClientController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
+            if ($client->logo && \Illuminate\Support\Facades\Storage::disk('public')->exists($client->logo)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($client->logo);
+            }
             $logoPath = $request->file('logo')->store('clients', 'public');
             $validatedData['logo'] = $logoPath;
+        } else {
+            unset($validatedData['logo']);
         }
 
         $client->update($validatedData);

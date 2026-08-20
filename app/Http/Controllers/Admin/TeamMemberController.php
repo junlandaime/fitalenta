@@ -60,8 +60,13 @@ class TeamMemberController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            if ($teamMember->image && \Illuminate\Support\Facades\Storage::disk('public')->exists($teamMember->image)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($teamMember->image);
+            }
             $imagePath = $request->file('image')->store('team-members', 'public');
             $validatedData['image'] = $imagePath;
+        } else {
+            unset($validatedData['image']);
         }
 
         $teamMember->update($validatedData);
