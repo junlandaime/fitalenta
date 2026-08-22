@@ -52,14 +52,25 @@ class HomeController extends Controller
         return view('front.about', compact('companyInfo'));
     }
 
-    public function event_index()
+    public function event_index(Request $request)
     {
         $categories = Category::get();
 
-        $events = Event::
-            // $events = Event::where('event_date', '>=', now())
-            orderBy('event_date', 'desc')
-            ->paginate(9);
+        $events = Event::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $events->where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
+            });
+        }
+
+        $events = $events
+            ->orderBy('event_date', 'desc')
+            ->paginate(9)
+            ->withQueryString();
 
         return view('front.events.index', compact('events', 'categories'));
     }

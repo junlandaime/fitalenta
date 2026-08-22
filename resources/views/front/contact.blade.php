@@ -3,12 +3,30 @@
 @section('title', 'Contact Us')
 
 @section('content')
-    <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center pt-16">Get in Touch</h1>
-            <p class="text-xl md:text-2xl mb-8 text-center">We'd love to hear from you. Let's start a conversation.</p>
+
+    <section class="relative bg-gradient-to-br from-[#00294B] via-[#004875] to-[#005792] text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -top-20 -right-20 w-72 h-72 bg-white rounded-full"></div>
+            <div class="absolute -bottom-32 -left-20 w-80 h-80 bg-white rounded-full"></div>
         </div>
-    </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block px-4 py-2 mb-5 rounded-full bg-white/10 border border-white/20 text-sm font-medium backdrop-blur-sm">
+                    FITALENTA Contact
+                </span>
+
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-5">
+                    Get in Touch
+                </h1>
+
+                <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+                    We'd love to hear from you. Let's start a conversation.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Breadcrumb -->
     <div class="bg-gray-200 py-2 px-4 lg:px-40">
         <div class="container mx-auto">
@@ -24,7 +42,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
                     <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
                     <form action="{{ route('contact.submit') }}" method="POST">
                         @csrf
@@ -53,7 +71,7 @@
                                 required></textarea>
                         </div>
                         <a id="startcon" href="#" onclick="gettogetInputValue()"
-                            class="bg-primary text-white px-6 py-3 rounded-md hover:bg-[#001f3b] transition duration-300">Send
+                           class="inline-block bg-primary text-white px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300">Send
                             Message</a>
                     </form>
                 </div>
@@ -61,8 +79,8 @@
                 <!-- Contact Information -->
                 <div>
                     <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
+                    <div class="space-y-8">
+                        <div class="flex items-start bg-white p-5 rounded-2xl shadow-md">
                             <svg class="h-6 w-6 text-[#00294B] mt-1 mr-3" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,7 +95,7 @@
                                     Bandung 40132</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start bg-white p-5 rounded-2xl shadow-md">
                             <svg class="h-6 w-6 text-[#00294B] mt-1 mr-3" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -88,7 +106,7 @@
                                 <p>+62 811 10119273</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start bg-white p-5 rounded-2xl shadow-md">
                             <svg class="h-6 w-6 text-[#00294B] mt-1 mr-3" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -102,11 +120,11 @@
                     </div>
 
                     <h2 class="text-2xl font-bold mt-12 mb-6">Office Location</h2>
-                    <div class="h-64 bg-gray-300 rounded-lg overflow-hidden">
+                    <div class="h-72 rounded-2xl overflow-hidden shadow-lg">
                         <!-- Replace the iframe src with your actual Google Maps embed code -->
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9732250684287!2d107.60635507475682!3d-6.893805993105349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e79861a09a0f%3A0x7edcd4dc41c3c5e1!2sGedung%20Science%20and%20Techno%20Park%20(STP)%20ITB!5e0!3m2!1sid!2sid!4v1727146483487!5m2!1sid!2sid"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -114,12 +132,16 @@
         </div>
     </div>
 
-    <div class="bg-white py-16">
+    <section class="relative overflow-hidden py-4 bg-white">
+
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#005792]/5 rounded-full"></div>
+        <div class="absolute -bottom-32 -left-20 w-80 h-80 bg-[#F15A24]/5 rounded-full"></div>
+        <div class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">Connect With Us on Social Media</h2>
             <div class="flex justify-center space-x-6 mt-6">
                 <a href="https://www.facebook.com/people/PT-FAST-Indo-Talenta/61550075167981/" target="_blank"
-                    class="text-gray-400 hover:text-[#00294B]">
+                   class="bg-gray-100 p-4 rounded-full text-gray-500 hover:bg-[#00294B] hover:text-white transition duration-300">
                     <span class="sr-only">Facebook</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
@@ -128,7 +150,7 @@
                     </svg>
                 </a>
                 <a href="https://www.instagram.com/fitalenta.id/" target="_blank"
-                    class="text-gray-400 hover:text-[#00294B]">
+                   class="bg-gray-100 p-4 rounded-full text-gray-500 hover:bg-[#00294B] hover:text-white transition duration-300">
                     <span class="sr-only">Instagram</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
@@ -144,7 +166,7 @@
                     </svg>
                 </a> --}}
                 <a href="https://www.linkedin.com/company/pt-fast-indo-talenta/" target="_blank"
-                    class="text-gray-400 hover:text-[#00294B]">
+                   class="bg-gray-100 p-4 rounded-full text-gray-500 hover:bg-[#00294B] hover:text-white transition duration-300">
                     <span class="sr-only">LinkedIn</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -154,6 +176,7 @@
             </div>
         </div>
     </div>
+    </section>
 
     @if (session('success'))
         <div class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg" x-data="{ show: true }"
@@ -164,7 +187,7 @@
     <!-- WhatsApp Button -->
     <a href="https://api.whatsapp.com/send?phone=6281110119273&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
         target="_blank"
-        class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+       class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition duration-300">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
 @endsection

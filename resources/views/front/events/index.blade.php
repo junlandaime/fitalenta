@@ -7,67 +7,172 @@
         [x-cloak] {
             display: none !important;
         }
-
-        .event-card:hover .event-image img {
-            transform: scale(1.05);
-        }
     </style>
 @endpush
 
 @section('content')
-    <div class="bg-gradient-to-r from-[#00294B] to-[#005792] text-white py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center pt-16">Upcoming Events</h1>
-            <p class="text-xl md:text-2xl mb-8 text-center">Join us for exciting events and expand your network</p>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-[#00294B] via-[#003E68] to-[#005792] text-white py-24 md:py-32">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_40%)]"></div>
+        <div class="absolute -bottom-24 -left-20 w-72 h-72 bg-white/5 rounded-full"></div>
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+
+                <span class="inline-flex items-center px-4 py-2 rounded-full
+                             bg-white/10 border border-white/20 backdrop-blur-sm
+                             text-sm font-medium mb-6">
+                    FITALENTA Events
+                </span>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-5">
+                    Upcoming Events
+                </h1>
+
+                <p class="text-lg md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                    Join us for exciting events and expand your network
+                </p>
+
+            </div>
         </div>
-    </div>
+    </section>
+
     <!-- Breadcrumb -->
-    <div class="bg-gray-200 py-2 px-40">
-        <div class="container mx-auto">
-            <ol class="list-reset flex text-sm">
-                <li><a href="{{ route('home') }}" class="text-primary">Home</a></li>
-                <li><span class="mx-2">/</span></li>
-                <li class="text-gray-700">Events</li>
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <ol class="flex items-center text-sm">
+                <li>
+                    <a href="{{ route('home') }}"
+                       class="text-[#00294B] font-medium hover:text-[#F15A24] transition">
+                        Home
+                    </a>
+                </li>
+
+                <li class="mx-3 text-gray-300">/</li>
+
+                <li class="text-gray-500">
+                    Events
+                </li>
             </ol>
         </div>
     </div>
 
-    <div class="py-16 bg-gray-100">
+    <!-- Events -->
+    <section class="py-20 bg-[#F7F9FB]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-8">
-                <form action="{{ route('events.index') }}" method="GET" class="flex space-x-4">
-                    <input type="text" name="search" placeholder="Search events..."
-                        class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294B]"
-                        value="{{ request('search') }}">
+
+            <!-- Search -->
+            <div class="max-w-3xl mx-auto mb-14">
+                <form action="{{ route('events.index') }}"
+                      method="GET"
+                      class="flex flex-col sm:flex-row gap-3">
+
+                    <div class="relative flex-1">
+                        <input type="text"
+                               name="search"
+                               placeholder="Search events..."
+                               value="{{ request('search') }}"
+                               class="w-full px-5 py-3.5 bg-white rounded-xl border border-gray-200
+                                      shadow-sm focus:outline-none focus:ring-2
+                                      focus:ring-[#005792]/20 focus:border-[#005792]
+                                      transition">
+                    </div>
+
                     <button type="submit"
-                        class="bg-primary text-white px-6 py-2 rounded-md hover:bg-[#001f3b] transition duration-300">Search</button>
+                            class="px-7 py-3.5 bg-[#00294B] text-white rounded-xl
+                                   font-semibold shadow-sm hover:bg-[#005792]
+                                   hover:shadow-md transition duration-300">
+                        Search
+                    </button>
+
                 </form>
             </div>
 
             @if ($events->isEmpty())
-                <p class="text-center text-gray-600">No events found. Please check back later for upcoming events.</p>
-            @else
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach ($events as $event)
-                        <x-event-card :event="$event" />
-                    @endforeach
+
+                <!-- Empty State -->
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm
+                            p-12 text-center">
+
+                    <div class="text-5xl mb-4">📅</div>
+
+                    <h2 class="text-2xl font-bold text-[#00294B] mb-2">
+                        No Events Found
+                    </h2>
+
+                    <p class="text-gray-500">
+                        Please try another keyword or check back later for upcoming events.
+                    </p>
+
                 </div>
 
-                <div class="mt-8">
+            @else
+
+                <!-- Section Title -->
+                <div class="text-center mb-12">
+
+                    <span class="text-sm font-semibold uppercase tracking-wider text-[#F15A24]">
+                        Explore With Us
+                    </span>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#00294B] mt-2">
+                        Discover Our Events
+                    </h2>
+
+                    <div class="w-16 h-1 bg-[#F15A24] mx-auto mt-4 rounded-full"></div>
+
+                </div>
+
+                <!-- Event Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+                    @foreach ($events as $event)
+
+                        <div class="h-full">
+                            <x-event-card :event="$event" />
+                        </div>
+
+                    @endforeach
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-14 flex justify-center">
                     {{ $events->links() }}
                 </div>
-            @endif
-        </div>
-    </div>
 
-    <div class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
-            <p class="text-xl mb-8">Contact us to suggest an event or inquire about custom training sessions.</p>
+            @endif
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative overflow-hidden py-20 bg-white">
+
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#005792]/5 rounded-full"></div>
+        <div class="absolute -bottom-32 -left-20 w-80 h-80 bg-[#F15A24]/5 rounded-full"></div>
+
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+            <span class="text-sm font-semibold uppercase tracking-wider text-[#005792]">
+                Let's Connect
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-[#00294B] mt-2 mb-4">
+                Can't Find What You're Looking For?
+            </h2>
+            <p class="text-gray-600 text-lg mb-8">
+                Contact us to suggest an event or inquire about custom training sessions.
+            </p>
             <a href="{{ route('contact') }}"
-                class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#001f3b] transition duration-300">
-                Get in Touch
+               class="inline-flex items-center justify-center
+                      bg-[#00294B] text-white
+                      px-8 py-3.5 rounded-xl
+                      text-lg font-semibold
+                      hover:bg-[#005792]
+                      transition-all duration-300 shadow-sm">
+                Get in Touch →
             </a>
         </div>
-    </div>
+    </section>
 @endsection
