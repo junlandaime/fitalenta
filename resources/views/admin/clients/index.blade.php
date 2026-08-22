@@ -1,97 +1,114 @@
 @extends('layouts.admin')
 
+@section('title', 'Klien Kami')
+@section('header_title', 'Manajemen Klien')
+
 @section('content')
-    <div class="container mx-auto px-4 py-8">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold">Clients</h1>
-            <a href="{{ route('admin.clients.create') }}"
-                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                Add New Client
-            </a>
+<div class="space-y-6">
+    <!-- Header & Action -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <h2 class="text-xl font-bold text-slate-800">Daftar Logo Klien</h2>
+            <p class="text-xs text-slate-500">Kelola daftar klien dan partner institusi yang ditampilkan di website.</p>
         </div>
+        <a href="{{ route('admin.clients.create') }}"
+            class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-primary text-white text-xs font-bold shadow-sm hover:bg-[#001d36] transition-all space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Tambah Klien Baru</span>
+        </a>
+    </div>
 
-        @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-                <span class="block sm:inline">{{ session('success') }}</span>
+    <!-- Data Table Card -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+        @if ($clients->isEmpty())
+            <div class="py-16 px-4 text-center">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+                <h3 class="text-sm font-bold text-slate-700">Belum ada klien</h3>
+                <p class="text-xs text-slate-400 mt-1">Tambahkan logo klien yang bekerjasama dengan Fitalenta.</p>
+                <a href="{{ route('admin.clients.create') }}"
+                    class="mt-4 inline-flex items-center px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold shadow-xs hover:bg-[#001d36]">
+                    Tambah Klien
+                </a>
             </div>
-        @endif
-
-        <div class="bg-white shadow-md rounded my-6">
-            <table class="min-w-full">
-                <thead>
-                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Name</th>
-                        <th class="py-3 px-6 text-left">Logo</th>
-                        <th class="py-3 px-6 text-left">Website</th>
-                        <th class="py-3 px-6 text-center">Featured</th>
-                        <th class="py-3 px-6 text-center">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600 text-sm font-light">
-                    @foreach ($clients as $client)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                {{ $client->name }}
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}"
-                                    class="h-10 w-auto">
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <a href="{{ $client->website }}" target="_blank"
-                                    class="text-blue-500 hover:underline">{{ $client->website }}</a>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <span
-                                    class="bg-{{ $client->is_featured ? 'green' : 'red' }}-500 text-white py-1 px-3 rounded-full text-xs">
-                                    {{ $client->is_featured ? 'Yes' : 'No' }}
-                                </span>
-                                <a href="{{ route('admin.clients.toggle', $client) }}">
-                                    <span
-                                        class="bg-{{ $client->is_featured ? 'red' : 'green' }}-500 text-white py-1 px-3 rounded-full text-xs">
-                                        {{ $client->is_featured ? 'deactivate' : 'activate' }}
-                                    </span>
-                                </a>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex item-center justify-center">
-                                    <a href="{{ route('admin.clients.show', $client) }}"
-                                        class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
+        @else
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider">
+                        <tr>
+                            <th class="py-3.5 px-4">Nama Klien</th>
+                            <th class="py-3.5 px-4">Logo</th>
+                            <th class="py-3.5 px-4">Website</th>
+                            <th class="py-3.5 px-4 text-center">Status Unggulan</th>
+                            <th class="py-3.5 px-4 text-right">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        @foreach ($clients as $client)
+                            <tr class="hover:bg-slate-50/80 transition-colors">
+                                <td class="py-3.5 px-4 font-bold text-slate-800">
+                                    {{ $client->name }}
+                                </td>
+                                <td class="py-3.5 px-4 whitespace-nowrap">
+                                    <div class="w-20 h-10 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center">
+                                        @if ($client->logo)
+                                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}"
+                                                class="max-h-full max-w-full object-contain">
+                                        @else
+                                            <span class="text-[10px] text-slate-400">No Logo</span>
+                                        @endif
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 whitespace-nowrap text-slate-500">
+                                    @if ($client->website)
+                                        <a href="{{ $client->website }}" target="_blank"
+                                            class="text-primary hover:underline font-medium inline-flex items-center space-x-1">
+                                            <span>{{ Str::limit($client->website, 30) }}</span>
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    @else
+                                        <span class="text-slate-400">-</span>
+                                    @endif
+                                </td>
+                                <td class="py-3.5 px-4 text-center whitespace-nowrap">
+                                    <a href="{{ route('admin.clients.toggle', $client) }}"
+                                        class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold transition-all {{ $client->is_featured ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200' }}"
+                                        title="Klik untuk ubah status">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ $client->is_featured ? 'bg-emerald-500' : 'bg-slate-400' }}"></span>
+                                        <span>{{ $client->is_featured ? 'Unggulan' : 'Biasa' }}</span>
                                     </a>
+                                </td>
+                                <td class="py-3.5 px-4 whitespace-nowrap text-right space-x-1.5">
                                     <a href="{{ route('admin.clients.edit', $client) }}"
-                                        class="w-4 mr-2 transform hover:text-yellow-500 hover:scale-110">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                        </svg>
+                                        class="inline-flex items-center px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-medium transition-colors">
+                                        Edit
                                     </a>
                                     <form action="{{ route('admin.clients.destroy', $client) }}" method="POST"
-                                        onsubmit="return confirm('Are you sure you want to delete this client?');">
+                                        class="inline-block"
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus klien ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                            </svg>
+                                            class="inline-flex items-center px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white font-medium transition-colors">
+                                            Hapus
                                         </button>
                                     </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
     </div>
+</div>
 @endsection

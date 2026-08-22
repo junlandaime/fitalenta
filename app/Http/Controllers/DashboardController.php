@@ -11,6 +11,10 @@ use App\Models\Category;
 use App\Models\HeroSlide;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
+use App\Models\Company;
+use App\Models\Job;
+use App\Models\UniversityPartner;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,32 +24,30 @@ class DashboardController extends Controller
     {
         $this->middleware('admin');
     }
+
     public function index()
     {
         $data = [
-            'totalEvents' => Event::count(),
+            // Core Counts
             'totalArticles' => Article::count(),
-            'totalServices' => Service::count(),
-            'totalUsers' => User::count(),
-            'recentUsers' => User::latest()->take(5)->get(),
-            'recentEvents' => Event::latest()->take(5)->get(),
-            'recentArticles' => Article::latest()->take(5)->get(),
-            'upcomingEvents' => Event::where('event_date', '>', now())->orderBy('event_date')->take(5)->get(),
-
-            'totalUsers' => User::count(),
-            'totalArticles' => Article::count(),
-            'totalServices' => Service::count(),
             'totalEvents' => Event::count(),
+            'totalServices' => Service::count(),
+            'totalCategories' => Category::count(),
             'totalHeroSlides' => HeroSlide::count(),
+            'totalGalleries' => Gallery::count(),
             'totalTeamMembers' => TeamMember::count(),
             'totalClients' => Client::count(),
-            'totalCategories' => Category::count(),
-            // 'totalComments' => Comment::count(),
             'totalTestimonials' => Testimonial::count(),
-            'recentArticles' => Article::latest()->take(5)->get(),
-            'upcomingEvents' => Event::where('event_date', '>', now())->orderBy('event_date')->take(5)->get(),
-            // 'recentComments' => Comment::with('commentable')->latest()->take(5)->get(),
+            'totalCompanies' => Company::count(),
+            'totalJobs' => Job::count(),
+            'totalUniversityPartners' => UniversityPartner::count(),
+            'totalUsers' => User::count(),
+
+            // Recent Feeds
+            'recentArticles' => Article::with('author')->latest()->take(5)->get(),
+            'upcomingEvents' => Event::where('event_date', '>=', now())->orderBy('event_date')->take(5)->get(),
             'recentTestimonials' => Testimonial::latest()->take(5)->get(),
+            'recentJobs' => Job::with('company')->latest()->take(5)->get(),
         ];
 
         return view('admin.dashboard', $data);
