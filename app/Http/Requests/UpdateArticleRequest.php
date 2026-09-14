@@ -17,11 +17,11 @@ class UpdateArticleRequest extends FormRequest
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'excerpt' => 'required|string|max:255',
-            // 'author_id' => 'required|exists:users,id',
+            'event_date' => 'nullable|date',
             'published_at' => 'nullable|date',
-            'is_featured' => 'boolean',
-            'category_id' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_id' => 'required|integer|exists:categories,id',
+            'is_featured' => 'nullable|boolean',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ];
     }
 }

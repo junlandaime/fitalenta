@@ -11,6 +11,7 @@ class Article extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'content',
         'excerpt',
         'author_id',
@@ -24,6 +25,11 @@ class Article extends Model
         'event_date' => 'datetime',
         'is_featured' => 'boolean',
     ];
+
+    public function getPublishedAtAttribute()
+    {
+        return $this->event_date;
+    }
 
     public function author()
     {

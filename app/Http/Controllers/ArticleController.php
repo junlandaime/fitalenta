@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -27,14 +28,30 @@ class ArticleController extends Controller
 
     public function store(StoreArticleRequest $request)
     {
-        // dd($request);
-        $validatedData = ($request->validated());
+        $validatedData = $request->validated();
+
         if ($request->hasFile('image')) {
             $validatedData['image'] = $request->file('image')->store('articles', 'public');
-            // $validated['foto']$img_url = time() . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
         }
+
+        // Generate unique slug
+        $slug = Str::slug($validatedData['title']);
+        $originalSlug = $slug;
+        $count = 1;
+        while (Article::where('slug', $slug)->exists()) {
+            $slug = "{$originalSlug}-{$count}";
+            $count++;
+        }
+        $validatedData['slug'] = $slug;
+
+        // Fallback if published_at is used instead of event_date
+        if (empty($validatedData['event_date']) && !empty($validatedData['published_at'])) {
+            $validatedData['event_date'] = $validatedData['published_at'];
+        }
+
         $validatedData['author_id'] = Auth::user()->id;
         Article::create($validatedData);
+
         return redirect()->route('admin.articles.index')->with('success', 'Article created successfully.');
     }
 
@@ -52,7 +69,7 @@ class ArticleController extends Controller
 
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        $validatedData = ($request->validated());
+        $validatedData = $request->validated();
 
         if ($request->hasFile('image')) {
             // Hapus foto lama jika ada
@@ -63,12 +80,33 @@ class ArticleController extends Controller
         } else {
             unset($validatedData['image']);
         }
+
+        // Generate unique slug
+        $slug = Str::slug($validatedData['title']);
+        $originalSlug = $slug;
+        $count = 1;
+        while (Article::where('slug', $slug)->where('id', '!=', $article->id)->exists()) {
+            $slug = "{$originalSlug}-{$count}";
+            $count++;
+        }
+        $validatedData['slug'] = $slug;
+
+        // Fallback if published_at is used instead of event_date
+        if (empty($validatedData['event_date']) && !empty($validatedData['published_at'])) {
+            $validatedData['event_date'] = $validatedData['published_at'];
+        }
+
         $article->update($validatedData);
+
         return redirect()->route('admin.articles.index')->with('success', 'Article updated successfully.');
     }
 
     public function destroy(Article $article)
     {
+        if ($article->image && Storage::disk('public')->exists($article->image)) {
+            Storage::disk('public')->delete($article->image);
+        }
+
         $article->delete();
         return redirect()->route('admin.articles.index')->with('success', 'Article deleted successfully.');
     }

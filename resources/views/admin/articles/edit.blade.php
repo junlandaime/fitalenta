@@ -28,7 +28,7 @@
                 </label>
                 <textarea
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('content') border-red-500 @enderror"
-                    id="content" name="content" rows="10" required>{{ old('content', $article->content) }}</textarea>
+                    id="content" name="content" rows="10">{{ old('content', $article->content) }}</textarea>
                 @error('content')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
@@ -93,6 +93,14 @@
                 @enderror
             </div>
 
+            <div class="mb-4">
+                <label class="inline-flex items-center text-gray-700 text-sm font-bold" for="is_featured">
+                    <input type="checkbox" id="is_featured" name="is_featured" value="1"
+                        {{ old('is_featured', $article->is_featured) ? 'checked' : '' }} class="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 mr-2">
+                    Feature this article
+                </label>
+            </div>
+
             <div class="flex items-center justify-between">
                 <button
                     class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -113,6 +121,14 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#content'))
+            .then(editor => {
+                const form = document.querySelector('form');
+                if (form) {
+                    form.addEventListener('submit', () => {
+                        document.querySelector('#content').value = editor.getData();
+                    });
+                }
+            })
             .catch(error => {
                 console.error(error);
             });
