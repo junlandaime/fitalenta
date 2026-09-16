@@ -95,15 +95,46 @@
     <!-- Chatbot FITALENTA AI -->
     <div id="chatbot-container" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[9999]">
 
-        <!-- Tombol Chat -->
+        <!-- Menu pilihan AI / WhatsApp -->
+        <div id="contact-choice"
+             class="hidden fixed w-[280px] rounded-2xl bg-white p-3 shadow-2xl border border-slate-200">
+
+            <button id="open-ai-chat"
+                    type="button"
+                    class="w-full flex items-center gap-3 rounded-xl px-4 py-3 text-left hover:bg-blue-50 transition">
+                <span class="w-10 h-10 rounded-xl bg-[#050B91] text-white flex items-center justify-center shrink-0">
+                    <i class="fas fa-robot"></i>
+                </span>
+                <span>
+                    <span class="block text-sm font-bold text-[#00294B]">Chat dengan FITALENTA AI</span>
+                    <span class="block text-xs text-slate-500 mt-0.5">Tanya informasi secara cepat</span>
+                </span>
+            </button>
+
+            <a href="https://api.whatsapp.com/send?phone=6281110119273&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="mt-1 w-full flex items-center gap-3 rounded-xl px-4 py-3 text-left hover:bg-green-50 transition">
+                <span class="w-10 h-10 rounded-xl bg-green-500 text-white flex items-center justify-center shrink-0">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                </span>
+                <span>
+                    <span class="block text-sm font-bold text-[#00294B]">Chat via WhatsApp</span>
+                    <span class="block text-xs text-slate-500 mt-0.5">Hubungi admin FITALENTA</span>
+                </span>
+            </a>
+        </div>
+
+        <!-- Satu tombol utama -->
         <button id="chatbot-toggle"
+                type="button"
                 class="flex items-center gap-2 bg-[#050B91] hover:bg-[#0710B5] text-white px-5 py-3 rounded-full shadow-xl transition-all duration-300 hover:scale-105">
 
-            <i class="fas fa-robot text-lg"></i>
+            <i class="fas fa-comments text-lg"></i>
 
             <span class="font-semibold text-sm">
-            Tanya FITALENTA AI
-        </span>
+                Hubungi FITALENTA
+            </span>
 
         </button>
 
@@ -308,6 +339,8 @@
         document.addEventListener('DOMContentLoaded', function () {
 
             const chatbotToggle = document.getElementById('chatbot-toggle');
+            const contactChoice = document.getElementById('contact-choice');
+            const openAiChat = document.getElementById('open-ai-chat');
             const chatbotBox = document.getElementById('chatbot-box');
             const chatbotClose = document.getElementById('chatbot-close');
             const chatbotClear = document.getElementById('chatbot-clear');
@@ -317,23 +350,39 @@
             const faqButtons = document.querySelectorAll('.chatbot-faq');
 
 
-            // ================= BUKA CHATBOT =================
+            // ================= MENU KONTAK =================
 
-            chatbotToggle.addEventListener('click', function () {
+            chatbotToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
 
+                if (!chatbotBox.classList.contains('hidden')) {
+                    chatbotBox.classList.add('hidden');
+                }
+
+                contactChoice.classList.toggle('hidden');
+            });
+
+            openAiChat.addEventListener('click', function () {
+                contactChoice.classList.add('hidden');
                 chatbotBox.classList.remove('hidden');
-
                 chatbotInput.focus();
+            });
 
+            document.addEventListener('click', function (event) {
+                if (
+                    !contactChoice.contains(event.target) &&
+                    !chatbotToggle.contains(event.target)
+                ) {
+                    contactChoice.classList.add('hidden');
+                }
             });
 
 
             // ================= TUTUP CHATBOT =================
 
             chatbotClose.addEventListener('click', function () {
-
                 chatbotBox.classList.add('hidden');
-
+                contactChoice.classList.add('hidden');
             });
 
 
@@ -678,6 +727,29 @@
         }
 
 
+
+        /* ================= CONTACT CHOICE POSITION ================= */
+        #contact-choice {
+            right: 24px;
+            bottom: 86px;
+            transform-origin: bottom right;
+        }
+
+        #contact-choice:not(.hidden) {
+            animation: contactMenuUp .18s ease-out;
+        }
+
+        @keyframes contactMenuUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         /* ================= MOBILE ================= */
 
         @media (max-width: 639px) {
@@ -686,6 +758,13 @@
                 bottom: 16px;
                 right: 16px;
                 left: auto;
+            }
+
+
+            #contact-choice {
+                right: 16px;
+                bottom: 82px;
+                width: min(280px, calc(100vw - 32px));
             }
 
 

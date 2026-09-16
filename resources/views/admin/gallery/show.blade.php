@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Manajemen Galeri')
+@section('header_title', 'Manajemen Galeri')
+
 @php
     $item = $galleryItem ?? $gallery;
 @endphp
@@ -11,7 +14,7 @@
                 class="w-full h-96 object-cover object-center">
             <div class="p-6">
                 <h1 class="text-3xl font-bold mb-4">{{ $item->title }}</h1>
-                <p class="text-gray-700 mb-4">{{ $item->description }}</p>
+                <p class="text-slate-700 mb-4">{{ $item->description }}</p>
                 <div class="mb-4">
                     <span class="font-bold">Category:</span> {{ $item->category->name ?? '-' }}
                 </div>

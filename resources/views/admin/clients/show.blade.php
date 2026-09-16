@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Manajemen Klien')
+@section('header_title', 'Manajemen Klien')
+
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -17,7 +20,7 @@
                 <div class="mb-4">
                     <span class="font-bold">Featured:</span>
                     <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $client->is_featured ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-xl {{ $client->is_featured ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                         {{ $client->is_featured ? 'Yes' : 'No' }}
                     </span>
                 </div>

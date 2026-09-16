@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Manajemen Tim')
+@section('header_title', 'Manajemen Tim')
+
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -11,13 +14,13 @@
                 <div class="p-8">
                     <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Team Member</div>
                     <h1 class="mt-1 text-3xl font-bold">{{ $teamMember->name }}</h1>
-                    <p class="mt-2 text-gray-500">{{ $teamMember->position }}</p>
+                    <p class="mt-2 text-slate-500">{{ $teamMember->position }}</p>
                 </div>
             </div>
             <div class="p-8">
                 <div class="mb-4">
                     <h2 class="text-xl font-bold mb-2">Bio</h2>
-                    <p class="text-gray-700">{{ $teamMember->bio }}</p>
+                    <p class="text-slate-700">{{ $teamMember->bio }}</p>
                 </div>
                 <div class="mb-4">
                     <span class="font-bold">Order:</span> {{ $teamMember->order }}
@@ -25,7 +28,7 @@
                 <div class="mb-4">
                     <span class="font-bold">Active:</span>
                     <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $teamMember->is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-xl {{ $teamMember->is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                         {{ $teamMember->is_active ? 'Yes' : 'No' }}
                     </span>
                 </div>

@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Mitra Universitas')
+@section('header_title', 'Mitra Universitas')
+
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <div class="flex justify-between items-center mb-6">
@@ -17,11 +20,11 @@
                 @method('PUT')
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    <label class="block text-slate-700 text-sm font-bold mb-2" for="name">
                         University Name
                     </label>
                     <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('name') border-red-500 @enderror"
+                        class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('name') border-red-500 @enderror"
                         id="name" type="text" name="name" value="{{ old('name', $universityPartner->name) }}"
                         required>
                     @error('name')
@@ -30,11 +33,11 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
+                    <label class="block text-slate-700 text-sm font-bold mb-2" for="location">
                         Location
                     </label>
                     <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('location') border-red-500 @enderror"
+                        class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('location') border-red-500 @enderror"
                         id="location" type="text" name="location"
                         value="{{ old('location', $universityPartner->location) }}" required>
                     @error('location')
@@ -43,11 +46,11 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="student_count">
+                    <label class="block text-slate-700 text-sm font-bold mb-2" for="student_count">
                         Number of Students
                     </label>
                     <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('student_count') border-red-500 @enderror"
+                        class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('student_count') border-red-500 @enderror"
                         id="student_count" type="number" name="student_count"
                         value="{{ old('student_count', $universityPartner->student_count) }}" required>
                     @error('student_count')
@@ -56,14 +59,14 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="logo">
+                    <label class="block text-slate-700 text-sm font-bold mb-2" for="logo">
                         Logo
                     </label>
                     <div class="flex items-center space-x-4">
                         <img src="{{ $universityPartner->logo_url }}" alt="{{ $universityPartner->name }}"
                             class="w-20 h-20 object-cover rounded">
                         <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('logo') border-red-500 @enderror"
+                            class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('logo') border-red-500 @enderror"
                             id="logo" type="file" name="logo" accept="image/*">
                     </div>
                     @error('logo')
@@ -72,11 +75,11 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="order">
+                    <label class="block text-slate-700 text-sm font-bold mb-2" for="order">
                         Display Order
                     </label>
                     <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('order') border-red-500 @enderror"
+                        class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('order') border-red-500 @enderror"
                         id="order" type="number" name="order" value="{{ old('order', $universityPartner->order) }}"
                         required>
                     @error('order')
@@ -89,13 +92,13 @@
                         <input type="checkbox" name="is_active" value="1"
                             {{ old('is_active', $universityPartner->is_active) ? 'checked' : '' }}
                             class="form-checkbox h-5 w-5 text-blue-600">
-                        <span class="ml-2 text-gray-700">Active</span>
+                        <span class="ml-2 text-slate-700">Active</span>
                     </label>
                 </div>
 
                 <div class="flex items-center justify-end">
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B]"
                         type="submit">
                         Update Partner
                     </button>

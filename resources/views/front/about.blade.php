@@ -35,7 +35,7 @@
             <ol class="flex items-center text-sm">
                 <li>
                     <a
-                        href="{{ route('home') }}"
+                        href="{{ route('home', [], false) }}"
                         class="text-[#005792] hover:text-[#F15A24] transition"
                     >
                         Home
@@ -61,9 +61,9 @@
 
                 <div class="overflow-hidden rounded-3xl">
                     <img
-                        src="https://picsum.photos/id/1076/600/400"
+                        src="{{ asset('landing.png') }}"
                         alt="FITALENTA Office"
-                        class="w-full h-[350px] md:h-[450px] object-cover"
+                        class="w-full h-auto object-contain"
                     >
                 </div>
 
@@ -482,7 +482,7 @@
                 We're always looking for talented individuals to join our growing team.
             </p>
 
-            <a href="{{ route('contact') }}"
+            <a href="{{ route('contact', [], false) }}"
                class="inline-flex items-center justify-center
                       bg-[#00294B] text-white
                       px-8 py-3.5 rounded-xl

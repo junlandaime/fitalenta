@@ -3,7 +3,7 @@
 @section('title', $service->name)
 
 @section('content')
-    <div class="container mx-auto px-4">
+    <div class="space-y-6">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-semibold">Service Details: {{ $service->name }}</h1>
             <div>

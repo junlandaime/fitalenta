@@ -3,18 +3,18 @@
 @section('title', 'Create New Service')
 
 @section('content')
-    <div class="container mx-auto px-4">
+    <div class="space-y-6">
         <h1 class="text-3xl font-semibold mb-6">Create New Service</h1>
 
         <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data"
             class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="name">
                     Service Name
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('name') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('name') border-red-500 @enderror"
                     id="name" type="text" name="name" value="{{ old('name') }}" required>
                 @error('name')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -23,11 +23,11 @@
 
             
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="short">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="short">
                     Short Description
                 </label>
                 <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('short') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('short') border-red-500 @enderror"
                     id="short" name="short" rows="3" required placeholder="Brief summary of the service">{{ old('short') }}</textarea>
                 @error('short')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -35,11 +35,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="description">
                     Description
                 </label>
                 <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('description') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('description') border-red-500 @enderror"
                     id="description" name="description" rows="5" required>{{ old('description') }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -47,11 +47,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="price">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="price">
                     Price (leave blank if variable)
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('price') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('price') border-red-500 @enderror"
                     id="price" type="number" name="price" value="{{ old('price') }}" step="0.01">
                 @error('price')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -59,11 +59,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="duration">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="duration">
                     Duration
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('duration') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('duration') border-red-500 @enderror"
                     id="duration" type="text" name="duration" value="{{ old('duration') }}">
                 @error('duration')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -71,11 +71,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="image">
                     Service Image
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('image') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('image') border-red-500 @enderror"
                     id="image" type="file" name="image">
                 @error('image')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -86,13 +86,13 @@
                 <label class="flex items-center">
                     <input type="checkbox" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}
                         class="mr-2">
-                    <span class="text-gray-700 text-sm font-bold">Feature this service</span>
+                    <span class="text-slate-700 text-sm font-bold">Feature this service</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-between">
                 <button
-                    class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="bg-[#F15A24] hover:bg-[#dc4e1d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B]"
                     type="submit">
                     Create Service
                 </button>

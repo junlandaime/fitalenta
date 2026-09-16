@@ -3,7 +3,7 @@
 @section('title', 'User Details')
 
 @section('content')
-    <div class="container mx-auto px-4">
+    <div class="space-y-6">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-semibold">User Details: {{ $user->name }}</h1>
             <div>
@@ -27,7 +27,7 @@
                 <p><strong>Email:</strong> {{ $user->email }}</p>
                 <p><strong>Role:</strong>
                     <span
-                        class="px-2 py-1 rounded-full text-xs {{ $user->role == 'admin' ? 'bg-red-200 text-red-800' : 'bg-blue-200 text-blue-800' }}">
+                        class="px-2 py-1 rounded-xl text-xs {{ $user->role == 'admin' ? 'bg-red-200 text-red-800' : 'bg-blue-200 text-blue-800' }}">
                         {{ ucfirst($user->role) }}
                     </span>
                 </p>

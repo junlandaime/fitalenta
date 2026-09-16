@@ -16,6 +16,10 @@
 
 @section('content')
 
+    @php
+        $featuredArticle = $articles->first();
+    @endphp
+
     <!-- Hero -->
     <section class="relative overflow-hidden bg-gradient-to-br from-[#00294B] via-[#003E68] to-[#005792] text-white py-24 md:py-32">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_40%)]"></div>
@@ -69,7 +73,7 @@
 
 
     <!-- Featured Article -->
-    @if ($articles)
+    @if ($featuredArticle)
         <section class="py-16 md:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -89,8 +93,8 @@
 
                         <!-- Image -->
                         <div class="relative overflow-hidden min-h-[280px] md:min-h-[420px]">
-                            <img src="{{ $articles->first()->image ? asset('storage/' . $articles->first()->image) : asset('images/default-article.jpg') }}"
-                                 alt="{{ $articles->first()->title }}"
+                            <img src="{{ $featuredArticle->image ? asset('storage/' . $featuredArticle->image) : asset('images/default-article.jpg') }}"
+                                 alt="{{ $featuredArticle->title }}"
                                  class="w-full h-full object-cover
                                        transition-transform duration-700
                                        group-hover:scale-105">
@@ -102,21 +106,19 @@
                         <!-- Content -->
                         <div class="p-8 md:p-12 flex flex-col justify-center">
 
-                            {{-- <span class="text-secondary font-semibold">Newest</span> --}}
-
                             <h2 class="text-3xl md:text-4xl font-bold
                                        leading-tight text-[#00294B] mb-5
                                        group-hover:text-[#005792]
                                        transition-colors duration-300">
-                                {{ $articles->first()->title }}
+                                {{ $featuredArticle->title }}
                             </h2>
 
                             <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                {{ $articles->first()->excerpt }}
+                                {{ $featuredArticle->excerpt }}
                             </p>
 
                             <div>
-                                <a href="{{ route('articles.show', $articles->first()) }}"
+                                <a href="{{ route('articles.show', $featuredArticle) }}"
                                    class="inline-flex items-center gap-2
                                           bg-[#00294B] text-white
                                           px-6 py-3 rounded-xl
@@ -179,7 +181,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                    @foreach ($articles->skip(1) as $article)
+                    @foreach ($articles as $article)
                         <x-article-card :article="$article" />
                     @endforeach
                 </div>
@@ -223,16 +225,6 @@
                       transition-all duration-300 shadow-sm">
                 Get in Touch →
             </a>
-
-            {{-- <form action="{{ route('newsletter.subscribe') }}" method="POST" class="max-w-md mx-auto">
-                @csrf
-                <div class="flex">
-                    <input type="email" name="email" placeholder="Enter your email" required
-                        class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#00294B]">
-                    <button type="submit"
-                        class="bg-primary text-white px-6 py-2 rounded-r-md hover:bg-[#001f3b] transition duration-300">Subscribe</button>
-                </div>
-            </form> --}}
 
         </div>
     </section>

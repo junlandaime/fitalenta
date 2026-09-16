@@ -184,12 +184,6 @@
             {{ session('success') }}
         </div>
     @endif
-    <!-- WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=6281110119273&text=Hello%20admin%20Fitalenta,%20Saya%20ingin%20bertanya%20terkait%20layanan%20dan%20produk"
-        target="_blank"
-       class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition duration-300">
-        <i class="fab fa-whatsapp fa-2x"></i>
-    </a>
 @endsection
 
 @push('scripts')

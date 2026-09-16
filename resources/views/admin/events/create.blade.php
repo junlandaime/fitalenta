@@ -1,31 +1,31 @@
 @extends('layouts.admin')
 
-@section('title', 'Create New Event')
+@section('title', 'Tambah Event Baru')
 
 @section('content')
-    <div class="container mx-auto px-4">
-        <h1 class="text-3xl font-semibold mb-6">Create New Event</h1>
+    <div class="space-y-6">
+        <h1 class="text-3xl font-semibold mb-6">Tambah Event Baru</h1>
 
         <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data"
             class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                    Title
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="title">
+                    Judul
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('title') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('title') border-red-500 @enderror"
                     id="title" type="text" name="title" value="{{ old('title') }}" required>
                 @error('title')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="link">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="link">
                     Link Pendaftaran
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('link') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('link') border-red-500 @enderror"
                     id="link" type="text" name="link" value="{{ old('link') }}" required>
                 @error('link')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -33,13 +33,13 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="category_id">
-                    Category
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="category_id">
+                    Kategori
                 </label>
                 <select
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('category_id') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('category_id') border-red-500 @enderror"
                     id="category_id" name="category_id" required>
-                    <option value="">Select a category</option>
+                    <option value="">Pilih kategori</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                             {{ $category->name }}
@@ -52,11 +52,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
-                    Description
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="description">
+                    Deskripsi
                 </label>
                 <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('description') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('description') border-red-500 @enderror"
                     id="description" name="description" rows="5" required>{{ old('description') }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -64,11 +64,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="event_date">
-                    Event Date
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="event_date">
+                    Tanggal Event
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('event_date') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('event_date') border-red-500 @enderror"
                     id="event_date" type="datetime-local" name="event_date" value="{{ old('event_date') }}" required>
                 @error('event_date')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -76,11 +76,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
-                    Location
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="location">
+                    Lokasi
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('location') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('location') border-red-500 @enderror"
                     id="location" type="text" name="location" value="{{ old('location') }}" required>
                 @error('location')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -88,11 +88,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="max_participants">
-                    Max Participants
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="max_participants">
+                    Maksimal Peserta
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('max_participants') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('max_participants') border-red-500 @enderror"
                     id="max_participants" type="number" name="max_participants" value="{{ old('max_participants') }}">
                 @error('max_participants')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -100,11 +100,11 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
-                    Event Image
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="image">
+                    Gambar Event
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('image') border-red-500 @enderror"
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('image') border-red-500 @enderror"
                     id="image" type="file" name="image">
                 @error('image')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -112,22 +112,22 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="is_featured">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="is_featured">
                     <input type="checkbox" id="is_featured" name="is_featured" value="1"
                         {{ old('is_featured') ? 'checked' : '' }}>
-                    Feature this event
+                    Jadikan event unggulan
                 </label>
             </div>
 
             <div class="flex items-center justify-between">
                 <button
-                    class="bg-primary hover:bg-[#001f3b] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="bg-[#F15A24] hover:bg-[#dc4e1d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B]"
                     type="submit">
-                    Create Event
+                    Simpan Event
                 </button>
                 <a class="inline-block align-baseline font-bold text-sm text-[#00294B] hover:text-[#001f3b]"
                     href="{{ route('admin.events.index') }}">
-                    Cancel
+                    Batal
                 </a>
             </div>
         </form>

@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
+@section('title', 'Manajemen Hero Slides')
+@section('header_title', 'Manajemen Hero Slides')
+
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -7,7 +10,7 @@
                 class="w-full h-96 object-cover object-center">
             <div class="p-6">
                 <h1 class="text-3xl font-bold mb-4">{{ $heroSlide->title }}</h1>
-                <p class="text-gray-700 mb-4">{{ $heroSlide->subtitle }}</p>
+                <p class="text-slate-700 mb-4">{{ $heroSlide->subtitle }}</p>
                 <div class="mb-4">
                     <span class="font-bold">CTA Text:</span> {{ $heroSlide->cta_text }}
                 </div>
