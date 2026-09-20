@@ -311,7 +311,9 @@
         <div class="ft-navbar-inner">
 
             <a href="{{ route('home', [], false) }}" class="ft-brand" aria-label="FITALENTA Home">
-                <img src="{{ asset('logoputih.png') }}" alt="FITALENTA">
+                <img src="{{ asset('logoputih.png') }}"
+                     onerror="this.onerror=null; this.src='{{ asset('logo.png') }}';"
+                     alt="FITALENTA">
             </a>
 
             <div class="ft-desktop">
