@@ -801,11 +801,11 @@
                             <!-- Date & Status -->
                             <div class="flex justify-between items-center mb-4">
                                 <time class="text-sm text-gray-500">
-                                    {{ $item->event_date->diffForHumans() }}
+                                    {{ $item->event_date ? $item->event_date->diffForHumans() : ($item->created_at ? $item->created_at->diffForHumans() : '-') }}
                                 </time>
 
                                 <span class="bg-[#00294B]/10 text-[#00294B] text-xs font-semibold px-3 py-1 rounded-full">
-                                    Past
+                                    {{ optional($item->category)->name ?? 'Update' }}
                                 </span>
                             </div>
 
@@ -820,11 +820,11 @@
                             </p>
 
                             <!-- Button -->
-                            <a href="{{ $item->category->name == 'Event'
+                            <a href="{{ ($item instanceof \App\Models\Event || optional($item->category)->name == 'Event')
                                 ? route('events.show', $item, false)
                                 : route('articles.show', $item, false) }}"
                                class="mt-auto inline-flex items-center w-fit bg-[#00294B] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#005792] transition duration-300">
-                                {{ $item->category->name == 'Event' ? 'View Recap' : 'Read Article' }}
+                                {{ ($item instanceof \App\Models\Event || optional($item->category)->name == 'Event') ? 'View Recap' : 'Read Article' }}
                                 <span class="ml-2">→</span>
                             </a>
                         </div>
@@ -893,13 +893,20 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 
                 @php
-                    $stats = setting('stats') ?? [];
+                    $stats = [];
+                    try {
+                        if (function_exists('setting')) {
+                            $stats = setting('stats') ?? [];
+                        }
+                    } catch (\Throwable $e) {
+                        $stats = [];
+                    }
 
                     if (is_string($stats)) {
                         $stats = json_decode($stats, true) ?? [];
                     }
 
-                    if (empty($stats)) {
+                    if (empty($stats) || !is_array($stats)) {
                         $stats = [
                             ['value' => 750, 'label' => 'Peserta Kegiatan', 'duration' => 1],
                             ['value' => 122, 'label' => 'Philanthropy Affiliate', 'duration' => 30],
