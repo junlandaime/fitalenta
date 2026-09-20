@@ -78,15 +78,11 @@
         .swiper-pagination-bullet-active {
             background: #005792;
         }
-    </style>
-@endpush
 
-
-    {{-- =========================================================
-         FITALENTA HOME REDESIGN - VISUAL OVERRIDES ONLY
-         Blade logic/database loops remain intact.
-         ========================================================= --}}
-    <style>
+        /* =========================================================
+           FITALENTA HOME REDESIGN - VISUAL OVERRIDES ONLY
+           Blade logic/database loops remain intact.
+           ========================================================= */
         :root {
             --ft-navy: #00294B;
             --ft-blue: #005792;
@@ -632,6 +628,7 @@
             font-style: normal;
         }
     </style>
+@endpush
 
 @section('content')
 

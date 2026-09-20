@@ -17,7 +17,9 @@
 @section('content')
 
     @php
-        $featuredArticle = $articles->first();
+        $isFirstPage = (int) request()->get('page', 1) <= 1;
+        $featuredArticle = $isFirstPage ? $articles->first() : null;
+        $gridArticles = $isFirstPage ? $articles->skip(1) : $articles;
     @endphp
 
     <!-- Hero -->
@@ -166,7 +168,7 @@
                     </p>
                 </div>
 
-            @else
+            @elseif ($gridArticles->isNotEmpty())
 
                 <div class="text-center mb-12">
                     <span class="text-sm font-semibold uppercase tracking-wider text-[#005792]">
@@ -181,7 +183,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                    @foreach ($articles as $article)
+                    @foreach ($gridArticles as $article)
                         <x-article-card :article="$article" />
                     @endforeach
                 </div>

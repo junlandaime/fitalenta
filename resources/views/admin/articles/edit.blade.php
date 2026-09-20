@@ -412,6 +412,22 @@
 
                 </div>
 
+                {{-- IS FEATURED --}}
+                <div class="mt-6 pt-5 border-t border-slate-100">
+                    <label class="inline-flex items-center cursor-pointer select-none">
+                        <input type="checkbox" id="is_featured" name="is_featured" value="1"
+                            {{ old('is_featured', $article->is_featured) ? 'checked' : '' }}
+                            class="rounded border-slate-300 text-[#F15A24] shadow-sm focus:border-[#00294B] focus:ring focus:ring-[#00294B]/20 w-4 h-4 mr-2.5">
+                        <span class="text-xs font-bold text-slate-700">Jadikan artikel unggulan (Feature this article)</span>
+                    </label>
+                    <p class="mt-1 text-[11px] text-slate-400 pl-6.5">
+                        Artikel unggulan akan ditampilkan di bagian banner atau sorotan utama.
+                    </p>
+                    @error('is_featured')
+                        <p class="mt-1 text-[11px] font-medium text-rose-500">{{ $message }}</p>
+                    @enderror
+                </div>
+
             </div>
 
         </section>
@@ -515,6 +531,14 @@
 <script>
     ClassicEditor
         .create(document.querySelector('#content'))
+        .then(editor => {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', () => {
+                    document.querySelector('#content').value = editor.getData();
+                });
+            }
+        })
         .catch(error => {
             console.error(error);
         });
