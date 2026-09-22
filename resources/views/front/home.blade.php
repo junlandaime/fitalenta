@@ -496,6 +496,10 @@
         .clients-swiper {
             cursor: grab;
             touch-action: pan-y;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .hero-swiper:active,
@@ -614,6 +618,12 @@
             -webkit-filter: none !important;
             opacity: 1 !important;
             mix-blend-mode: normal !important;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
         }
 
         .service-icon {
@@ -1113,19 +1123,20 @@
                 </p>
             </div>
 
-            <div class="swiper clients-swiper">
+            <div class="swiper clients-swiper select-none">
                 <div class="swiper-wrapper">
 
                     @foreach ($clients as $client)
-                        <div class="swiper-slide flex items-center justify-center px-3"
+                        <div class="swiper-slide flex items-center justify-center px-3 select-none"
                              data-aos="fade-up"
                              data-aos-delay="{{ $loop->index * 100 }}">
 
-                            <div class="w-full h-32 bg-white rounded-3xl border border-gray-100 flex items-center justify-center p-6 hover:shadow-lg transition duration-300">
+                            <div class="group w-full h-32 bg-white rounded-3xl border border-gray-100 flex items-center justify-center p-6 hover:shadow-lg transition duration-300 select-none">
 
                                 <img src="{{ asset('storage/' . $client->logo) }}"
                                      alt="{{ $client->name }}"
-                                     class="client-logo max-h-20 max-w-[80%] object-contain transition duration-300 hover:scale-105">
+                                     draggable="false"
+                                     class="client-logo max-h-20 max-w-[80%] object-contain transition duration-300 group-hover:scale-105 select-none pointer-events-none">
 
                             </div>
                         </div>
@@ -1192,6 +1203,8 @@
                 grabCursor: true,
                 resistanceRatio: 0.85,
                 watchOverflow: true,
+                preventClicks: true,
+                preventClicksPropagation: true,
 
                 pagination: {
                     el: '.swiper-pagination',
