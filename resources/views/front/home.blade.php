@@ -707,28 +707,18 @@
                                 <a href="{{ route('services.show', $service, false) }}" class="block">
 
                                     @php
-                                        /*
-                                         * Tampilan icon saja.
-                                         * Database lama berisi beberapa nama icon Font Awesome 6,
-                                         * sedangkan halaman ini memakai Font Awesome 5.15.3.
-                                         * Mapping berikut membuat semua icon tetap tampil tanpa
-                                         * mengubah isi database.
-                                         */
-                                        $iconMap = [
-                                            'chart-line' => 'chart-line',
-                                            'people-group' => 'users',
-                                            'person-arrow-up-from-line' => 'user-graduate',
-                                            'business-time' => 'briefcase',
-                                            'store' => 'store',
-                                            'calendar-days' => 'calendar-alt',
-                                        ];
-
-                                        $serviceIcon = $iconMap[$service->icon] ?? null;
+                                        $serviceIcon = $service->resolved_icon ?? null;
 
                                         if (!$serviceIcon) {
                                             $serviceName = strtolower($service->name ?? '');
 
-                                            if (str_contains($serviceName, 'financial')) {
+                                            if (str_contains($serviceName, 'avionics') || str_contains($serviceName, 'aviation') || str_contains($serviceName, 'aircraft') || str_contains($serviceName, 'category c')) {
+                                                $serviceIcon = 'plane';
+                                            } elseif (str_contains($serviceName, 'improvement')) {
+                                                $serviceIcon = 'cogs';
+                                            } elseif (str_contains($serviceName, 'management')) {
+                                                $serviceIcon = 'clipboard-check';
+                                            } elseif (str_contains($serviceName, 'financial')) {
                                                 $serviceIcon = 'chart-line';
                                             } elseif (str_contains($serviceName, 'human capital')) {
                                                 $serviceIcon = 'users';
@@ -740,10 +730,6 @@
                                                 $serviceIcon = 'bullhorn';
                                             } elseif (str_contains($serviceName, 'event')) {
                                                 $serviceIcon = 'calendar-alt';
-                                            } elseif (str_contains($serviceName, 'improvement')) {
-                                                $serviceIcon = 'chart-bar';
-                                            } elseif (str_contains($serviceName, 'management')) {
-                                                $serviceIcon = 'tasks';
                                             } else {
                                                 $serviceIcon = 'briefcase';
                                             }

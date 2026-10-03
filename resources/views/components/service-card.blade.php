@@ -12,7 +12,7 @@
                     text-[#005792]
                     group-hover:bg-[#005792] group-hover:text-white
                     transition-all duration-300">
-            <i class="fas fa-{{ $service->icon }} text-2xl"></i>
+            <i class="fas fa-{{ $service->resolved_icon }} text-2xl"></i>
         </div>
 
         <h3 class="text-xl font-bold mb-4 text-[#00294B]">

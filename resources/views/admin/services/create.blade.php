@@ -83,6 +83,19 @@
             </div>
 
             <div class="mb-4">
+                <label class="block text-slate-700 text-sm font-bold mb-2" for="icon">
+                    Icon (Font Awesome / e.g. plane, cogs, users, clipboard)
+                </label>
+                <input
+                    class="border border-slate-200 rounded-xl w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#00294B]/10 focus:border-[#00294B] @error('icon') border-red-500 @enderror"
+                    id="icon" type="text" name="icon" value="{{ old('icon') }}" placeholder="e.g. plane, cogs, users, clipboard">
+                <p class="text-slate-400 text-xs mt-1">Kosongkan jika ingin icon otomatis dideteksi dari nama layanan.</p>
+                @error('icon')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}
                         class="mr-2">
